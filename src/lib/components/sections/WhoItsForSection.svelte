@@ -32,7 +32,7 @@
 			</p>
 		</div>
 
-		<div class="grid grid-cols-4 md:grid-cols-8 gap-4 mb-12">
+		<div class="grid grid-cols-3 md:grid-cols-9 gap-4 mb-12">
 			{#each trades as trade (trade.label)}
 				<div
 					class="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl py-4 px-2 text-center shadow-sm"

@@ -150,7 +150,7 @@
 				<div>
 					<h4 class="font-bold text-gray-900 text-sm mb-1">Our promise</h4>
 					<p class="text-gray-600 text-sm leading-relaxed">
-						Your page goes live in 5 business days or we refund your setup fee in full. Not happy
+						Your page goes live in 3–5 business days or we refund your setup fee in full. Not happy
 						with the video? We redo it. Growth and Enterprise plans are month-to-month — cancel
 						anytime, no contracts, no fees.
 					</p>

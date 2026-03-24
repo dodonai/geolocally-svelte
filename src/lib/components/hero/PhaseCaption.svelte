@@ -25,7 +25,7 @@
 		font-weight: 600;
 		color: #ffffff;
 		opacity: 0;
-		animation: flPhaseFadeIn 0.8s ease-in-out 0.5s forwards;
+		animation: glPhaseFadeIn 0.8s ease-in-out 0.5s forwards;
 	}
 
 	.phase-subcaption {
@@ -34,10 +34,10 @@
 		font-style: italic;
 		margin-top: 2px;
 		opacity: 0;
-		animation: flPhaseFadeIn 0.8s ease-in-out 1s forwards;
+		animation: glPhaseFadeIn 0.8s ease-in-out 1s forwards;
 	}
 
-	@keyframes flPhaseFadeIn {
+	@keyframes glPhaseFadeIn {
 		from {
 			opacity: 0;
 		}

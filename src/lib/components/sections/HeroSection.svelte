@@ -42,7 +42,7 @@
 			<p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mb-8 text-pretty">
 				GeoLocally builds you a video-first landing page engineered to rank on Google
 				<em>and</em> get recommended by ChatGPT, Perplexity, and every AI assistant your customers
-				use. One page. One video. One price. Yours forever.
+				use. One page. One video. $499 to start — you own the content.
 			</p>
 
 			<!-- CTAs -->
@@ -51,7 +51,7 @@
 					href="#get-started"
 					class="bg-white text-gray-900 hover:bg-gray-100 font-bold text-base px-8 py-3.5 rounded-xl shadow-lg transition-colors inline-flex items-center justify-center"
 				>
-					Get Your Digital Storefront — $499
+					Get Your Storefront — $499
 				</a>
 				<a
 					href="#how-ai-works"

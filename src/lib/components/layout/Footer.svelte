@@ -23,6 +23,6 @@
 	<div
 		class="container mx-auto px-4 max-w-5xl mt-6 pt-6 border-t border-gray-800 text-center text-xs text-gray-600"
 	>
-		&copy; 2026 GeoLocally. Built for local businesses that deserve to be found.
+		&copy; 2026 GeoLocally. All rights reserved.
 	</div>
 </footer>

@@ -1,7 +1,12 @@
 <script>
-	import { Check } from 'lucide-svelte';
+	import { Check, AlertCircle, Loader2 } from 'lucide-svelte';
+
+	// Replace with your deployed Google Apps Script web app URL
+	const FORM_ENDPOINT = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
 
 	let submitted = $state(false);
+	let submitting = $state(false);
+	let error = $state('');
 
 	const businessTypes = [
 		'Home services (plumbing, HVAC, roofing, etc.)',
@@ -24,9 +29,28 @@
 		'Other'
 	];
 
-	function handleSubmit(e) {
+	async function handleSubmit(e) {
 		e.preventDefault();
-		submitted = true;
+		error = '';
+		submitting = true;
+
+		const formData = new FormData(e.target);
+		const data = Object.fromEntries(formData.entries());
+		data.submitted_at = new Date().toISOString();
+
+		try {
+			const response = await fetch(FORM_ENDPOINT, {
+				method: 'POST',
+				mode: 'no-cors',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(data)
+			});
+			submitted = true;
+		} catch (err) {
+			error = 'Something went wrong. Please email us at hello@geolocally.com instead.';
+		} finally {
+			submitting = false;
+		}
 	}
 </script>
 
@@ -59,30 +83,45 @@
 			</div>
 
 			<form onsubmit={handleSubmit} class="flex flex-col gap-3">
+				<label for="name" class="sr-only">Your name</label>
 				<input
+					id="name"
+					name="name"
 					required
 					type="text"
 					placeholder="Your name (e.g. Mike Rodriguez)"
 					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
+				<label for="email" class="sr-only">Email address</label>
 				<input
+					id="email"
+					name="email"
 					required
 					type="email"
 					placeholder="Email address"
 					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
+				<label for="phone" class="sr-only">Phone number</label>
 				<input
+					id="phone"
+					name="phone"
 					type="tel"
 					placeholder="Phone number (optional)"
 					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
+				<label for="business" class="sr-only">Business name and city</label>
 				<input
+					id="business"
+					name="business"
 					required
 					type="text"
 					placeholder="Business name and city (e.g. Rodriguez Services, Austin TX or Bright Smiles Dental, Phoenix AZ)"
 					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
+				<label for="business-type" class="sr-only">What type of business?</label>
 				<select
+					id="business-type"
+					name="business_type"
 					required
 					class="w-full rounded-xl bg-gray-800 border border-gray-700 text-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				>
@@ -91,12 +130,18 @@
 						<option value={type}>{type}</option>
 					{/each}
 				</select>
+				<label for="website" class="sr-only">Website URL</label>
 				<input
+					id="website"
+					name="website"
 					type="url"
 					placeholder="Website URL — optional (https://...)"
 					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
+				<label for="referral" class="sr-only">How did you hear about us?</label>
 				<select
+					id="referral"
+					name="referral_source"
 					class="w-full rounded-xl bg-gray-800 border border-gray-700 text-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				>
 					<option value="" disabled selected>How did you hear about us? — optional</option>
@@ -105,11 +150,24 @@
 					{/each}
 				</select>
 
+				{#if error}
+					<div class="flex items-center gap-2 text-red-400 text-sm bg-red-400/10 border border-red-400/20 rounded-xl px-4 py-3">
+						<AlertCircle class="w-4 h-4 flex-shrink-0" />
+						{error}
+					</div>
+				{/if}
+
 				<button
 					type="submit"
-					class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl text-base mt-2 transition-colors"
+					disabled={submitting}
+					class="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl text-base mt-2 transition-colors flex items-center justify-center gap-2"
 				>
-					Get My Digital Storefront — $499
+					{#if submitting}
+						<Loader2 class="w-4 h-4 animate-spin" />
+						Submitting...
+					{:else}
+						Get Your Storefront — $499
+					{/if}
 				</button>
 				<p class="text-center text-xs text-gray-400">
 					We don't consider the project finished until you approve the final product. We follow up

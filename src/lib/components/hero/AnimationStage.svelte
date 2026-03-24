@@ -5,6 +5,8 @@
 
 	let step = $state(0);
 	let timeoutId;
+	let isVisible = true;
+	let containerEl;
 
 	function startAnimation() {
 		clearAnimation();
@@ -13,6 +15,8 @@
 	}
 
 	function advanceAnimation() {
+		if (!isVisible) return;
+
 		if (step < durations.length - 1) {
 			timeoutId = setTimeout(() => {
 				step++;
@@ -31,12 +35,30 @@
 	}
 
 	onMount(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const wasVisible = isVisible;
+				isVisible = entries[0].isIntersecting;
+				if (isVisible && !wasVisible) {
+					startAnimation();
+				} else if (!isVisible) {
+					clearAnimation();
+				}
+			},
+			{ threshold: 0.1 }
+		);
+
+		observer.observe(containerEl);
 		startAnimation();
-		return () => clearAnimation();
+
+		return () => {
+			clearAnimation();
+			observer.disconnect();
+		};
 	});
 </script>
 
-<div class="animation-container">
+<div class="animation-container" bind:this={containerEl}>
 	<div class="animation-stage" style="height: {height}px">
 		{@render children(step)}
 	</div>
