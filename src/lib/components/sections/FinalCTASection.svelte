@@ -2,7 +2,7 @@
 	import { Check, AlertCircle, Loader2 } from 'lucide-svelte';
 
 	// Replace with your deployed Google Apps Script web app URL
-	const FORM_ENDPOINT = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+	const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwv4MW0_vFohlPLnWNqRkx4UFSX1NFS8yuoiQwwTjWCgJ4eojH5yQx-TQE1_fmylbK7nA/exec';
 
 	let submitted = $state(false);
 	let submitting = $state(false);
