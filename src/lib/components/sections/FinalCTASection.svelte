@@ -46,6 +46,13 @@
 				body: JSON.stringify(data)
 			});
 			submitted = true;
+			if (typeof gtag === 'function') {
+				gtag('event', 'generate_lead', {
+					event_category: 'form',
+					event_label: 'storefront_intake',
+					value: 499
+				});
+			}
 		} catch (err) {
 			error = 'Something went wrong. Please email us at hello@geolocally.com instead.';
 		} finally {

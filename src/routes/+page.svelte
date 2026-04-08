@@ -30,6 +30,38 @@
 	<meta name="twitter:description" content="GeoLocally builds video-first landing pages engineered to rank on Google and get recommended by ChatGPT, Perplexity, and every AI assistant your customers use." />
 	<meta name="twitter:image" content="https://geolocally.com/og-image.png" />
 	<link rel="canonical" href="https://geolocally.com" />
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Organization",
+				"name": "GeoLocally",
+				"url": "https://geolocally.com",
+				"logo": "https://geolocally.com/favicon.svg",
+				"email": "hello@geolocally.com",
+				"description": "GeoLocally builds video-first landing pages engineered to rank on Google and get recommended by AI assistants.",
+				"sameAs": []
+			},
+			{
+				"@type": "WebApplication",
+				"name": "GeoLocally",
+				"url": "https://geolocally.com",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"description": "Video-first landing pages for local service businesses, optimized for Google and AI search engines.",
+				"offers": {
+					"@type": "Offer",
+					"price": "499",
+					"priceCurrency": "USD",
+					"description": "Digital Storefront — one-time setup fee"
+				},
+				"provider": {
+					"@type": "Organization",
+					"name": "GeoLocally"
+				}
+			}
+		]
+	})}</script>`}
 </svelte:head>
 
 <HeroSection />

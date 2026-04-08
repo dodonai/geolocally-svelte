@@ -42,6 +42,7 @@
 					</ul>
 					<a
 						href="#get-started"
+						onclick={() => typeof gtag === 'function' && gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'pricing_digital_storefront' })}
 						class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl text-base transition-colors text-center block"
 					>
 						Get Your Storefront — $499
@@ -81,6 +82,7 @@
 					</ul>
 					<a
 						href="#get-started"
+						onclick={() => typeof gtag === 'function' && gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'pricing_growth' })}
 						class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl text-base transition-colors text-center block"
 					>
 						Start Growing — $149/mo
@@ -124,6 +126,7 @@
 					<div>
 						<a
 							href="#get-started"
+							onclick={() => typeof gtag === 'function' && gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'pricing_enterprise' })}
 							class="w-full border-2 border-amber-500 text-amber-400 hover:bg-amber-500/10 font-bold py-3.5 rounded-xl text-base transition-colors text-center block"
 						>
 							Contact Us

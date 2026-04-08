@@ -49,6 +49,7 @@
 			<div class="flex flex-col sm:flex-row gap-3 mb-8">
 				<a
 					href="#get-started"
+					onclick={() => typeof gtag === 'function' && gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'hero_get_storefront' })}
 					class="bg-white text-gray-900 hover:bg-gray-100 font-bold text-base px-8 py-3.5 rounded-xl shadow-lg transition-colors inline-flex items-center justify-center"
 				>
 					Get Your Storefront — $499
