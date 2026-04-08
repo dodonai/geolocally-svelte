@@ -21,8 +21,12 @@
 		</div>
 	</div>
 	<div
-		class="container mx-auto px-4 max-w-5xl mt-6 pt-6 border-t border-gray-800 text-center text-xs text-gray-600"
+		class="container mx-auto px-4 max-w-5xl mt-6 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600"
 	>
-		&copy; 2026 GeoLocally. All rights reserved.
+		<span>&copy; 2026 GeoLocally. All rights reserved.</span>
+		<div class="flex gap-4">
+			<a href="/privacy" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+			<a href="/terms" class="hover:text-gray-400 transition-colors">Terms of Service</a>
+		</div>
 	</div>
 </footer>

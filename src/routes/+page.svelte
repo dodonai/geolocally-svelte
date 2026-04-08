@@ -24,9 +24,12 @@
 	<meta property="og:url" content="https://geolocally.com" />
 	<meta property="og:title" content="GeoLocally — Video-First Landing Pages for Local Service Businesses" />
 	<meta property="og:description" content="GeoLocally builds video-first landing pages engineered to rank on Google and get recommended by ChatGPT, Perplexity, and every AI assistant your customers use." />
+	<meta property="og:image" content="https://geolocally.com/og-image.png" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="GeoLocally — Video-First Landing Pages for Local Service Businesses" />
 	<meta name="twitter:description" content="GeoLocally builds video-first landing pages engineered to rank on Google and get recommended by ChatGPT, Perplexity, and every AI assistant your customers use." />
+	<meta name="twitter:image" content="https://geolocally.com/og-image.png" />
+	<link rel="canonical" href="https://geolocally.com" />
 </svelte:head>
 
 <HeroSection />
