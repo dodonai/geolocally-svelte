@@ -5,10 +5,10 @@
 	let isOpen = $state(false);
 </script>
 
-<div class="border border-gray-200 rounded-xl px-5 {isOpen ? 'bg-gray-50' : ''}">
+<div class="border border-slate-700 rounded-lg px-5 {isOpen ? 'bg-slate-700' : ''}">
 	<button
 		type="button"
-		class="flex w-full items-center justify-between text-left text-sm font-semibold text-gray-900 py-4 hover:no-underline"
+		class="flex w-full items-center justify-between text-left text-sm font-semibold text-white py-4 hover:no-underline"
 		onclick={() => (isOpen = !isOpen)}
 		aria-expanded={isOpen}
 	>
@@ -27,7 +27,7 @@
 	</button>
 	{#if isOpen}
 		<div transition:slide={{ duration: 250 }} class="overflow-hidden pb-4">
-			<p class="text-sm text-gray-500 leading-relaxed">{answer}</p>
+			<p class="text-sm text-gray-400 leading-relaxed">{answer}</p>
 		</div>
 	{/if}
 </div>

@@ -6,8 +6,8 @@
 	/>
 </svelte:head>
 
-<section class="bg-white py-16 md:py-24">
-	<div class="container mx-auto max-w-3xl px-4 prose prose-lg prose-gray">
+<section class="bg-[#030712] text-white py-16 md:py-24">
+	<div class="container mx-auto max-w-3xl px-4 prose prose-lg prose-invert">
 		<h1>Privacy Policy</h1>
 		<p class="text-sm text-gray-500">
 			GeoLocally - geolocally.com<br />

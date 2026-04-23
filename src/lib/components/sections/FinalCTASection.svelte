@@ -94,7 +94,7 @@
 				>
 					<Check class="w-7 h-7 text-white" />
 				</div>
-				<h2 class="text-3xl font-extrabold mb-4 text-balance">
+				<h2 class="font-display text-3xl font-black italic mb-4 text-balance">
 					Your request is in.
 				</h2>
 				<p class="text-gray-300 text-lg leading-relaxed">
@@ -103,7 +103,7 @@
 			</div>
 		{:else}
 			<div class="text-center mb-10">
-				<h2 class="text-3xl md:text-4xl font-extrabold text-balance mb-4">
+				<h2 class="font-display text-3xl md:text-4xl font-black italic text-balance mb-4">
 					{title}
 				</h2>
 				<p class="text-gray-300 text-lg text-pretty leading-relaxed">

@@ -65,7 +65,7 @@
 			<p class="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-400 mb-4">
 				{post.category}
 			</p>
-			<h1 class="text-4xl md:text-5xl font-extrabold text-balance leading-tight mb-6">
+			<h1 class="font-display text-4xl md:text-5xl font-black italic text-balance leading-tight mb-6">
 				{post.title}
 			</h1>
 			<p class="text-lg text-gray-300 leading-relaxed max-w-3xl">{post.description}</p>
@@ -77,16 +77,16 @@
 			<img
 				src={post.coverImage}
 				alt={post.coverAlt}
-				class="mt-10 aspect-[1200/630] w-full rounded-3xl border border-gray-800 object-cover shadow-2xl"
+				class="mt-10 aspect-[1200/630] w-full rounded-lg border border-slate-700 object-cover shadow-2xl"
 				loading="eager"
 			/>
 		</div>
 	</div>
 </section>
 
-<section class="bg-white py-16 md:py-20">
+<section class="bg-[#030712] text-white py-16 md:py-20">
 	<div class="container mx-auto max-w-3xl px-4">
-		<article class="prose prose-lg prose-gray max-w-none prose-headings:font-extrabold prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
+		<article class="prose prose-lg prose-invert max-w-none prose-headings:font-display prose-headings:font-black prose-headings:italic prose-headings:text-white prose-p:text-gray-300 prose-li:text-gray-300 prose-strong:text-white prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:text-indigo-300">
 			{@render children()}
 		</article>
 

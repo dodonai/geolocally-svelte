@@ -17,12 +17,12 @@
 	}
 </script>
 
-<nav class="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
+<nav class="sticky top-0 z-50 border-b border-slate-700/60 bg-black/95 backdrop-blur-sm">
 	<div class="container mx-auto px-4 py-3 flex items-center justify-between">
-		<BrandLogo variant="dark" sizeClass="mr-6 w-[170px] sm:w-[190px]" />
-		<div class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-500">
+		<BrandLogo variant="light" sizeClass="mr-6 w-[170px] sm:w-[190px]" />
+		<div class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-400">
 			{#each navLinks as link (link.href)}
-				<a href={link.href} class="hover:text-gray-900 transition-colors">{link.label}</a>
+				<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
 			{/each}
 		</div>
 		<div class="flex items-center gap-3">
@@ -55,12 +55,12 @@
 	</div>
 
 	{#if mobileOpen}
-		<div class="md:hidden border-t border-gray-200 bg-white">
+		<div class="md:hidden border-t border-slate-700 bg-black">
 			<div class="container mx-auto px-4 py-3 flex flex-col gap-1">
 				{#each navLinks as link (link.href)}
 					<a
 						href={link.href}
-						class="block py-2.5 px-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+						class="block py-2.5 px-3 text-sm font-medium text-gray-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
 						onclick={closeMobile}
 					>
 						{link.label}
