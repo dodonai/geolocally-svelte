@@ -18,9 +18,9 @@
 </script>
 
 <nav class="sticky top-0 z-50 border-b border-slate-700/60 bg-black/95 backdrop-blur-sm">
-	<div class="container mx-auto px-4 py-3 flex items-center justify-between">
-		<BrandLogo variant="light" sizeClass="mr-6 w-[170px] sm:w-[190px]" />
-		<div class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-400">
+	<div class="container mx-auto px-4 py-2 md:py-2.5 flex items-center justify-between gap-3">
+		<BrandLogo variant="light" sizeClass="w-[132px] sm:w-[148px] md:w-[168px]" />
+		<div class="hidden md:flex items-center gap-6 text-[13px] font-medium text-gray-400">
 			{#each navLinks as link (link.href)}
 				<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
 			{/each}
@@ -34,13 +34,13 @@
 						event_category: 'engagement',
 						event_label: 'nav_request_storefront'
 					})}
-				class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg px-5 py-2 text-sm transition-colors"
+				class="hidden md:inline-flex bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg px-4 py-1.5 text-[13px] transition-colors"
 			>
 				Request Your Storefront
 			</a>
 			<button
 				type="button"
-				class="md:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors"
+				class="md:hidden p-1.5 text-gray-300 hover:text-white transition-colors"
 				onclick={() => (mobileOpen = !mobileOpen)}
 				aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
 				aria-expanded={mobileOpen}
@@ -66,6 +66,13 @@
 						{link.label}
 					</a>
 				{/each}
+				<a
+					href="/#get-started"
+					class="mt-2 inline-flex items-center justify-center rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-700"
+					onclick={closeMobile}
+				>
+					Request Your Storefront
+				</a>
 			</div>
 		</div>
 	{/if}
