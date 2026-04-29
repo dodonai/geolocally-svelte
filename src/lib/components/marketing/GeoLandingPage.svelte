@@ -1,5 +1,4 @@
 <script>
-	import { Check } from 'lucide-svelte';
 	import SectionLabel from '$lib/components/ui/SectionLabel.svelte';
 	import FinalCTASection from '$lib/components/sections/FinalCTASection.svelte';
 
@@ -55,7 +54,7 @@
 	<div class="container mx-auto max-w-6xl px-4 py-20 md:py-24">
 		<div class="max-w-4xl">
 			<SectionLabel>{page.locationLabel}</SectionLabel>
-			<h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-balance mb-6">
+			<h1 class="font-display text-4xl md:text-6xl font-black italic leading-tight text-balance mb-6">
 				{page.heroTitle}
 			</h1>
 			<p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mb-10">
@@ -63,119 +62,119 @@
 			</p>
 			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
 				{#each page.heroBullets as bullet (bullet)}
-					<div class="rounded-2xl border border-gray-800 bg-gray-800/70 px-4 py-4 text-sm text-gray-200">
+					<div class="rounded-lg border border-slate-700 bg-slate-800/70 px-4 py-4 text-sm text-gray-200">
 						<div class="flex items-start gap-2">
-							<Check class="mt-0.5 h-4 w-4 flex-shrink-0 text-indigo-400" />
+							<span class="text-indigo-400 flex-shrink-0 mt-0.5 font-bold leading-none">—</span>
 							<span>{bullet}</span>
 						</div>
 					</div>
 				{/each}
 			</div>
-				<div class="mt-10 flex flex-col gap-3 sm:flex-row">
-					<a
-						href="#get-started"
-						onclick={() =>
-							typeof gtag === 'function' &&
-							gtag('event', 'cta_click', {
-								event_category: 'engagement',
-								event_label: `geo_primary_${page.slug}`
-							})}
-						class="inline-flex items-center justify-center rounded-xl bg-white px-8 py-3.5 font-bold text-gray-900 transition-colors hover:bg-gray-100"
-					>
-						Request Your Storefront
-					</a>
-					<a
-						href="/#how-ai-works"
-						onclick={() =>
-							typeof gtag === 'function' &&
-							gtag('event', 'cta_click', {
-								event_category: 'engagement',
-								event_label: `geo_secondary_${page.slug}`
-							})}
-						class="inline-flex items-center justify-center rounded-xl border-2 border-white px-8 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
-					>
-						See How Search Is Changing
-					</a>
-				</div>
+			<div class="mt-10 flex flex-col gap-3 sm:flex-row">
+				<a
+					href="#get-started"
+					onclick={() =>
+						typeof gtag === 'function' &&
+						gtag('event', 'cta_click', {
+							event_category: 'engagement',
+							event_label: `geo_primary_${page.slug}`
+						})}
+					class="inline-flex items-center justify-center rounded-lg bg-indigo-600 hover:bg-indigo-500 px-8 py-3.5 font-bold text-white transition-colors"
+				>
+					Request Your Storefront
+				</a>
+				<a
+					href="/#how-ai-works"
+					onclick={() =>
+						typeof gtag === 'function' &&
+						gtag('event', 'cta_click', {
+							event_category: 'engagement',
+							event_label: `geo_secondary_${page.slug}`
+						})}
+					class="inline-flex items-center justify-center rounded-lg border border-slate-600 px-8 py-3.5 font-semibold text-gray-300 transition-colors hover:border-slate-500 hover:text-white"
+				>
+					See How Search Is Changing
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
 
-<section class="bg-white py-16 md:py-20">
+<section class="bg-[#030712] text-white py-16 md:py-20">
 	<div class="container mx-auto max-w-5xl px-4 space-y-10">
 		{#each page.sections as section (section.title)}
-			<div class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm md:p-10">
-				<h2 class="text-3xl font-extrabold text-gray-900 text-balance mb-5">{section.title}</h2>
-				<div class="space-y-4 text-lg leading-relaxed text-gray-700">
+			<div class="rounded-lg border border-slate-700 bg-slate-900 p-8 md:p-10">
+				<h2 class="font-display text-3xl font-black italic text-white text-balance mb-5">{section.title}</h2>
+				<div class="space-y-4 text-lg leading-relaxed text-gray-300">
 					{#each section.paragraphs ?? [] as paragraph (paragraph)}
 						<p>{paragraph}</p>
 					{/each}
 				</div>
 				{#if section.list}
 					{#if section.listIntro}
-						<p class="mt-6 text-base font-semibold uppercase tracking-[0.18em] text-indigo-600">
+						<p class="mt-6 text-base font-bold uppercase tracking-[0.18em] text-indigo-400">
 							{section.listIntro}
 						</p>
 					{/if}
 					<ul class="mt-4 grid gap-3 md:grid-cols-2">
 						{#each section.list as item (item)}
-							<li class="rounded-2xl bg-gray-50 px-4 py-3 text-gray-700">{item}</li>
+							<li class="rounded-lg bg-slate-800 px-4 py-3 text-gray-300">{item}</li>
 						{/each}
 					</ul>
 				{/if}
 				{#if section.points}
 					<div class="mt-6 grid gap-4 md:grid-cols-2">
 						{#each section.points as point (point.title)}
-							<div class="rounded-2xl bg-gray-50 px-5 py-5">
-								<h3 class="text-lg font-bold text-gray-900">{point.title}</h3>
-								<p class="mt-2 text-gray-700">{point.body}</p>
+							<div class="rounded-lg bg-slate-800 px-5 py-5">
+								<h3 class="text-lg font-bold text-white">{point.title}</h3>
+								<p class="mt-2 text-gray-300">{point.body}</p>
 							</div>
 						{/each}
 					</div>
 				{/if}
 				{#if section.outro}
-					<p class="mt-6 text-lg leading-relaxed text-gray-700">{section.outro}</p>
+					<p class="mt-6 text-lg leading-relaxed text-gray-300">{section.outro}</p>
 				{/if}
 			</div>
 		{/each}
 	</div>
 </section>
 
-<section class="bg-gray-50 py-16 md:py-20">
+<section class="bg-slate-900 text-white py-16 md:py-20">
 	<div class="container mx-auto max-w-5xl px-4">
 		<div class="max-w-3xl">
 			<SectionLabel>How It Works</SectionLabel>
-			<h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-balance">
+			<h2 class="font-display text-3xl md:text-4xl font-black italic text-white text-balance">
 				A clearer storefront, without a bloated website project.
 			</h2>
 		</div>
 		<div class="mt-10 grid gap-6 md:grid-cols-3">
 			{#each page.process as step, index (step.title)}
-				<div class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-					<p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-500">
+				<div class="rounded-lg border border-slate-700 bg-[#030712] p-8">
+					<p class="text-sm font-bold uppercase tracking-[0.18em] text-indigo-400">
 						Step {index + 1}
 					</p>
-					<h3 class="mt-3 text-2xl font-bold text-gray-900 text-balance">{step.title}</h3>
-					<p class="mt-4 text-gray-700 leading-relaxed">{step.body}</p>
+					<h3 class="mt-3 text-2xl font-bold text-white text-balance">{step.title}</h3>
+					<p class="mt-4 text-gray-400 leading-relaxed">{step.body}</p>
 				</div>
 			{/each}
 		</div>
 	</div>
 </section>
 
-<section class="bg-white py-16 md:py-20">
+<section class="bg-[#030712] text-white py-16 md:py-20">
 	<div class="container mx-auto max-w-5xl px-4">
 		<div class="max-w-3xl">
 			<SectionLabel>FAQ</SectionLabel>
-			<h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-balance">
+			<h2 class="font-display text-3xl md:text-4xl font-black italic text-white text-balance">
 				Common questions before you fill out the form.
 			</h2>
 		</div>
 		<div class="mt-10 grid gap-6 md:grid-cols-2">
 			{#each page.faqs as faq (faq.question)}
-				<div class="rounded-3xl border border-gray-200 bg-gray-50 p-8">
-					<h3 class="text-xl font-bold text-gray-900 text-balance">{faq.question}</h3>
-					<p class="mt-4 text-gray-700 leading-relaxed">{faq.answer}</p>
+				<div class="rounded-lg border border-slate-700 bg-slate-900 p-8">
+					<h3 class="text-xl font-bold text-white text-balance">{faq.question}</h3>
+					<p class="mt-4 text-gray-300 leading-relaxed">{faq.answer}</p>
 				</div>
 			{/each}
 		</div>

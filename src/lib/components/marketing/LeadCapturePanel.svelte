@@ -9,12 +9,12 @@
 	} = $props();
 </script>
 
-<section class="bg-gray-900 text-white rounded-3xl border border-gray-800 p-8 md:p-10">
+<section class="bg-slate-900 text-white rounded-lg border border-slate-700 p-8 md:p-10">
 	<div class="max-w-3xl">
-		<p class="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-400 mb-4">
+		<p class="text-xs font-bold uppercase tracking-[0.24em] text-indigo-400 mb-4">
 			Get Started
 		</p>
-		<h2 class="text-3xl md:text-4xl font-extrabold text-balance mb-4">{title}</h2>
+		<h2 class="font-display text-3xl md:text-4xl font-black italic text-balance mb-4">{title}</h2>
 		<p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl">{body}</p>
 		<div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
 			<a

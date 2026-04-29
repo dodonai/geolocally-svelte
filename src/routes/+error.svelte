@@ -8,8 +8,8 @@
 
 <section class="bg-gray-900 text-white min-h-[60vh] flex items-center justify-center">
 	<div class="container mx-auto px-4 text-center max-w-lg">
-		<p class="text-8xl font-extrabold text-indigo-400 mb-4">{page.status}</p>
-		<h1 class="text-2xl md:text-3xl font-extrabold mb-4 text-balance">
+		<p class="font-display text-8xl font-black italic text-indigo-400 mb-4">{page.status}</p>
+		<h1 class="font-display text-2xl md:text-3xl font-black italic mb-4 text-balance">
 			{#if page.status === 404}
 				This page doesn't exist.
 			{:else}
@@ -26,13 +26,13 @@
 		<div class="flex flex-col sm:flex-row gap-3 justify-center">
 			<a
 				href="/"
-				class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3.5 rounded-xl text-base transition-colors"
+				class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-3.5 rounded-lg text-base transition-colors"
 			>
 				Back to Home
 			</a>
 			<a
 				href="/#get-started"
-				class="inline-block border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-bold px-8 py-3.5 rounded-xl text-base transition-colors"
+				class="inline-block border border-slate-600 hover:border-slate-400 text-gray-300 hover:text-white font-bold px-8 py-3.5 rounded-lg text-base transition-colors"
 			>
 				Request Your Storefront
 			</a>

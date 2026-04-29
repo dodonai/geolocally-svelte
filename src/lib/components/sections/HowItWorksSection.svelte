@@ -20,14 +20,14 @@
 	];
 </script>
 
-<section id="how-it-works" class="bg-white py-20">
+<section id="how-it-works" class="bg-slate-800 text-white py-20">
 	<div class="container mx-auto px-4 max-w-4xl">
 		<div class="text-center mb-12">
 			<SectionLabel>How It Works</SectionLabel>
-			<h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-balance mb-4">
+			<h2 class="font-display text-3xl md:text-4xl font-black italic text-white text-balance mb-4">
 				Three steps. No bloated website project.
 			</h2>
-			<p class="text-gray-500 text-lg">
+			<p class="text-gray-400 text-lg">
 				Tell us the basics. GeoLocally handles the rest.
 			</p>
 		</div>
@@ -36,12 +36,12 @@
 			{#each steps as step, i (i)}
 				<div class="flex flex-col items-center text-center">
 					<div
-						class="w-12 h-12 rounded-full bg-indigo-600 text-white text-xl font-extrabold flex items-center justify-center mb-5 shadow-lg"
+						class="w-12 h-12 rounded-full bg-indigo-600 text-white text-xl font-black flex items-center justify-center mb-5 shadow-lg shadow-indigo-900/50"
 					>
 						{step.num}
 					</div>
-					<h3 class="font-bold text-gray-900 text-base mb-2">{step.title}</h3>
-					<p class="text-gray-500 text-sm leading-relaxed">{step.body}</p>
+					<h3 class="font-bold text-white text-base mb-2">{step.title}</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">{step.body}</p>
 				</div>
 			{/each}
 		</div>

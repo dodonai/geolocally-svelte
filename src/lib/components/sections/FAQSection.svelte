@@ -4,11 +4,11 @@
 	import faqs from '$lib/data/faq.json';
 </script>
 
-<section class="bg-white py-20">
+<section class="bg-slate-800 text-white py-20">
 	<div class="container mx-auto px-4 max-w-2xl">
 		<div class="text-center mb-10">
 			<SectionLabel>FAQ</SectionLabel>
-			<h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-balance">
+			<h2 class="font-display text-3xl md:text-4xl font-black italic text-white text-balance">
 				Questions we hear all the time.
 			</h2>
 		</div>

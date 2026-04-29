@@ -19,14 +19,14 @@
 	];
 </script>
 
-<section class="bg-gray-50 py-20">
+<section class="bg-[#030712] text-white py-20">
 	<div class="container mx-auto px-4 max-w-5xl">
 		<div class="text-center mb-12">
 			<SectionLabel>Built For</SectionLabel>
-			<h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-balance mb-4">
+			<h2 class="font-display text-3xl md:text-4xl font-black italic text-white text-balance mb-4">
 				Local businesses that run on reputation and referrals.
 			</h2>
-			<p class="text-gray-500 text-lg max-w-2xl mx-auto text-pretty">
+			<p class="text-gray-400 text-lg max-w-2xl mx-auto text-pretty">
 				If customers usually find you through local search, referrals, or comparison shopping,
 				GeoLocally was made for you.
 			</p>
@@ -35,16 +35,16 @@
 		<div class="grid grid-cols-3 md:grid-cols-9 gap-4 mb-12">
 			{#each trades as trade (trade.label)}
 				<div
-					class="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl py-4 px-2 text-center shadow-sm"
+					class="flex flex-col items-center gap-2 bg-slate-800 border border-slate-700 rounded-lg py-4 px-2 text-center"
 				>
 					<span class="text-2xl" role="img" aria-label={trade.label}>{trade.icon}</span>
-					<span class="text-xs font-medium text-gray-600">{trade.label}</span>
+					<span class="text-xs font-medium text-gray-400">{trade.label}</span>
 				</div>
 			{/each}
 		</div>
 
-		<div class="bg-gray-900 rounded-2xl p-8">
-			<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6 text-center">
+		<div class="bg-slate-900 border border-slate-700 rounded-lg p-8">
+			<p class="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-6 text-center">
 				What this is NOT
 			</p>
 			<div class="grid md:grid-cols-3 gap-6">

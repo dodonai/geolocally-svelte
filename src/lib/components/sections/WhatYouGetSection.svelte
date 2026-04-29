@@ -6,7 +6,7 @@
 	<div class="container mx-auto px-4 max-w-5xl">
 		<div class="text-center mb-12">
 			<SectionLabel>What You Get</SectionLabel>
-			<h2 class="text-3xl md:text-4xl font-extrabold text-balance mb-4">
+			<h2 class="font-display text-3xl md:text-4xl font-black italic text-balance mb-4">
 				Your digital storefront.
 				<span class="text-indigo-400">Built to say the right thing fast.</span>
 			</h2>
