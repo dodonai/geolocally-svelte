@@ -51,7 +51,7 @@ function getOrCreateSheet() {
 
 function doPost(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
+    const data = e.parameter;
     const sheet = getOrCreateSheet();
     const row = HEADERS.map((h) => data[h] || "");
     sheet.appendRow(row);
