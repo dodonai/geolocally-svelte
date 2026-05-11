@@ -8,7 +8,7 @@
 	} = $props();
 
 	// Replace with your deployed Google Apps Script web app URL
-	const FORM_ENDPOINT = 'https://script.google.com/a/macros/dodon.ai/s/AKfycbwwqJEYDtEtHd19lFMmyhRWZ7bNVGAJGaIUYYdD1V65_Xrh1HZV3t101NMk52zOfw91/exec';
+	const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxgReALvDMHC7s9MkJ5LQuQPWSaCLek3Fco74RkyUN8ZeF3kAQCYBTR7mk6BTniaJ6K/exec';
 
 	let submitted = $state(false);
 	let submitting = $state(false);
