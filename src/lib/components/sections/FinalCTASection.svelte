@@ -67,8 +67,7 @@
 			await fetch(FORM_ENDPOINT, {
 				method: 'POST',
 				mode: 'no-cors',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(data)
+				body: new URLSearchParams(data)
 			});
 			submitted = true;
 			if (typeof gtag === 'function') {
