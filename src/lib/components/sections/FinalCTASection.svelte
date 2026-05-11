@@ -54,6 +54,13 @@
 		const data = Object.fromEntries(formData.entries());
 		data.submitted_at = new Date().toISOString();
 
+		if (data.website) {
+			const w = data.website.trim();
+			if (w && !w.match(/^https?:\/\//i)) {
+				data.website = 'https://' + w;
+			}
+		}
+
 		if (typeof window !== 'undefined') {
 			const params = new URLSearchParams(window.location.search);
 			for (const field of campaignFields) {
@@ -162,8 +169,8 @@
 				<input
 					id="website"
 					name="website"
-					type="url"
-					placeholder="Website URL — optional (https://...)"
+					type="text"
+					placeholder="Website — optional (e.g. mysite.com or instagram.com/mybiz)"
 					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
 				<label for="referral" class="sr-only">How did you hear about us?</label>
