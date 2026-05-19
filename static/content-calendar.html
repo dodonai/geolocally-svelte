@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>GeoLocally — Evergreen Content Calendar</title>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --card: #131826;
+    --card-hover: #1a2032;
+    --border: #232a3d;
+    --text: #e7ecf3;
+    --muted: #8993a8;
+    --linkedin: #0a66c2;
+    --meta: #e1306c;
+    --p1: #ff6b35;
+    --p2: #06b6d4;
+    --p3: #84cc16;
+    --p4: #a78bfa;
+    --p5: #f59e0b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 32px 24px 80px;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 1400px; margin: 0 auto; }
+  header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot-linkedin { background: var(--linkedin); }
+  .dot-meta { background: var(--meta); }
+  .dot-p1 { background: var(--p1); }
+  .dot-p2 { background: var(--p2); }
+  .dot-p3 { background: var(--p3); }
+  .dot-p4 { background: var(--p4); }
+  .dot-p5 { background: var(--p5); }
+
+  .cadence {
+    margin: 24px 0 32px;
+    padding: 16px 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .cadence strong { color: var(--text); }
+
+  .week {
+    margin-bottom: 32px;
+  }
+  .week-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .day-header {
+    grid-column: span 6;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    margin-bottom: -4px;
+  }
+  @media (max-width: 1100px) { .day-header { display: none; } }
+  .day-header > div {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+  }
+  .card:hover {
+    background: var(--card-hover);
+    border-color: #2f3a55;
+    transform: translateY(-2px);
+  }
+  .thumb {
+    height: 110px;
+    background-size: cover;
+    background-position: center;
+    background-color: #0e1421;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .thumb-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--p1) 0%, var(--p4) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    opacity: 0.9;
+  }
+  .thumb-fallback.p1 { background: linear-gradient(135deg, #ff6b35 0%, #ff9558 100%); }
+  .thumb-fallback.p2 { background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%); }
+  .thumb-fallback.p3 { background: linear-gradient(135deg, #84cc16 0%, #a3e635 100%); }
+  .thumb-fallback.p4 { background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%); }
+  .thumb-fallback.p5 { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); }
+
+  .channel-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: #fff;
+    backdrop-filter: blur(8px);
+  }
+  .channel-badge.linkedin { background: var(--linkedin); }
+  .channel-badge.meta { background: var(--meta); }
+  .day-num {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    padding: 4px 8px;
+    border-radius: 6px;
+    backdrop-filter: blur(8px);
+  }
+
+  .card-body {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .pillar-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .hook {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .format-tag {
+    background: #0e1421;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 16, 0.85);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+    z-index: 100;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    max-width: 720px;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  }
+  .modal-thumb {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-color: #0e1421;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.6);
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    backdrop-filter: blur(8px);
+  }
+  .modal-close:hover { background: rgba(0,0,0,0.9); }
+  .modal-body { padding: 24px 28px 28px; }
+  .modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .modal-hook {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .modal-section { margin-top: 20px; }
+  .modal-section h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .modal-section p, .modal-section .body-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    white-space: pre-line;
+  }
+  .modal-section .stock-note {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .copy-btn {
+    margin-top: 8px;
+    background: var(--linkedin);
+    border: none;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .copy-btn:hover { filter: brightness(1.1); }
+  .copy-btn.meta { background: var(--meta); }
+  .copy-btn.copied { background: var(--p3); }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 48px;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>GeoLocally — Evergreen Content Calendar</h1>
+    <div class="subtitle">30 evergreen posts · LinkedIn + Meta (FB/IG) · 5-week rotation, repeats indefinitely</div>
+  </div>
+  <div class="legend">
+    <span class="chip"><span class="dot dot-linkedin"></span>LinkedIn</span>
+    <span class="chip"><span class="dot dot-meta"></span>Meta (FB/IG)</span>
+    <span class="chip"><span class="dot dot-p1"></span>AEO Reality</span>
+    <span class="chip"><span class="dot dot-p2"></span>Mirror Moments</span>
+    <span class="chip"><span class="dot dot-p3"></span>Operator Tips</span>
+    <span class="chip"><span class="dot dot-p4"></span>Industry Spotlight</span>
+    <span class="chip"><span class="dot dot-p5"></span>Plain English</span>
+  </div>
+</header>
+
+<div class="cadence">
+  <strong>Cadence:</strong> LinkedIn posts Mon / Wed / Fri · Meta posts Tue / Thu / Sat · Sunday is a rest day · Click any post to see full copy, format, and stock-photo suggestion · Each card has a one-tap copy button
+</div>
+
+<div id="calendar"></div>
+
+<footer>
+  Local-only artifact · Built 2026-05-19 · Stock photos sourced from <a href="https://unsplash.com" target="_blank">Unsplash</a> / <a href="https://pexels.com" target="_blank">Pexels</a> — keywords in each modal · Hero + blog cover images from geolocally.com
+</footer>
+</div>
+
+<div class="modal-backdrop" id="modal" onclick="if(event.target===this) closeModal()">
+  <div class="modal" id="modal-inner"></div>
+</div>
+
+<script>
+const POSTS = [
+  // ───────── WEEK 1 ─────────
+  { id: 'L1', day: 1, weekday: 'Mon', channel: 'linkedin', pillar: 1, pillarName: 'AEO Reality',
+    hook: "Your customers stopped Googling. They started asking.",
+    body: "Search just shifted under us:\n\n• Type \"plumber near me\" → 10 blue links to compare.\n• Ask ChatGPT \"who's the best plumber in Tampa?\" → 1 name. Maybe 2.\n\nIf the AI can't read your site clearly, you don't make the shortlist.\n\nThat's the whole AEO conversation. Stop optimizing for the SERP that's collapsing. Start writing pages an AI can summarize.",
+    format: 'Text post',
+    cta: "Comment \"AEO\" — I'll send the plain-English guide.",
+    image: 'https://geolocally.com/blog-covers/your-customers-arent-just-googling-anymore.png',
+    stockKeywords: '' },
+  { id: 'M1', day: 2, weekday: 'Tue', channel: 'meta', pillar: 2, pillarName: 'Mirror Moments',
+    hook: "Type your business name + 'reviews' into Google right now. What's the first thing you see?",
+    body: "Not the map. Not the website. The AI summary at the top.\n\nIf that summary is vague, wrong, or missing — that's the first thing every new customer reads about you.\n\nI'll pull yours for free. Comment 'show me' and drop your business name. Doing the first 5 today.",
+    format: 'Single image post',
+    cta: "Comment 'show me' — first 5 today.",
+    image: '',
+    stockKeywords: 'phone screen with Google search results, person holding phone' },
+  { id: 'L2', day: 3, weekday: 'Wed', channel: 'linkedin', pillar: 2, pillarName: 'Mirror Moments',
+    hook: "I asked ChatGPT to recommend a Tampa plumber. Here's what it said about my client's competitor — and what it didn't say about my client.",
+    body: "Real screenshot. Real business. Both have similar Google ranks.\n\nThe competitor got a 4-line recommendation with services, neighborhood, and a price range.\n\nMy client got: \"Based on available information, I cannot confidently recommend...\"\n\nThe AI couldn't read their site. The Google rank didn't help.\n\nIf you want me to do this for your business, drop your URL.",
+    format: 'Single image post (screenshot)',
+    cta: "Drop your URL — I'll do this for you.",
+    image: '',
+    stockKeywords: 'chatgpt interface on phone, ai chat conversation screen' },
+  { id: 'M2', day: 4, weekday: 'Thu', channel: 'meta', pillar: 3, pillarName: 'Operator Tips',
+    hook: "If your website doesn't say what city you're in, AI can't recommend you. Period.",
+    body: "Most Florida small-business homepages say \"serving local customers.\"\n\nNot good enough anymore.\n\nWrite the actual city — or the actual zip codes — in your H1 and your footer. AI uses both.\n\nWant me to show you exactly where to put it on your site? DM the word 'city.'",
+    format: 'Image — map of Florida with pin',
+    cta: "DM 'city' — I'll show you where.",
+    image: '',
+    stockKeywords: 'florida map with location pin, map illustration florida' },
+  { id: 'L3', day: 5, weekday: 'Fri', channel: 'linkedin', pillar: 3, pillarName: 'Operator Tips',
+    hook: "One sentence on your homepage is doing 80% of the conversion work. Most businesses get it wrong.",
+    body: "Your H1.\n\nBad: \"Welcome to Smith & Sons.\"\nBad: \"Quality service since 1982.\"\nBad: \"Your trusted partner for all your needs.\"\n\nGood: \"Roof repair for Tampa homeowners. Same-week appointments.\"\n\nThe rule: WHAT you do + WHERE you work + WHO you do it for. In one line.\n\nSend me your H1, I'll rewrite it free.",
+    format: 'Carousel (3 slides)',
+    cta: "Send me your H1 — free rewrite.",
+    image: 'https://geolocally.com/blog-covers/how-to-make-your-business-easier-to-understand-online.png',
+    stockKeywords: '' },
+  { id: 'M3', day: 6, weekday: 'Sat', channel: 'meta', pillar: 4, pillarName: 'Industry Spotlight',
+    hook: "Plumbers in Florida — this one's for you. Here's what ChatGPT just said about your nearest competitor.",
+    body: "I ran 10 Florida plumbers through ChatGPT this week. 7 had zero meaningful description. 3 had a one-line summary that landed them ahead of everyone else.\n\nThe difference wasn't ranking. It was how clearly their website explained what they do.\n\nWant me to pull yours? Drop your business name in the comments.",
+    format: 'Single image post (screenshot)',
+    cta: "Drop your business name in the comments.",
+    image: '',
+    stockKeywords: 'plumber working under sink, plumbing tools wrench, florida plumber' },
+
+  // ───────── WEEK 2 ─────────
+  { id: 'L4', day: 8, weekday: 'Mon', channel: 'linkedin', pillar: 4, pillarName: 'Industry Spotlight',
+    hook: "What a dentist looks like in AI search vs. what they think they look like.",
+    body: "Side by side:\n\nLEFT — their About page: \"With over 20 years of experience and a commitment to excellence, Dr. Smith provides comprehensive care for the whole family.\"\n\nRIGHT — ChatGPT's summary when asked for a Tampa dentist: \"I cannot find specific information about specialties or new patient availability.\"\n\nThe gap is your competition.",
+    format: 'Carousel (4 slides)',
+    cta: "Run this on your own clinic — DM me if you want help.",
+    image: '',
+    stockKeywords: 'modern dental clinic interior, dentist office reception, friendly dentist' },
+  { id: 'M4', day: 9, weekday: 'Tue', channel: 'meta', pillar: 5, pillarName: 'Plain English',
+    hook: "Three words to delete from your About page today: 'full-service solutions provider.'",
+    body: "Nobody searches for a 'full-service solutions provider.'\nNobody calls one. Nobody refers one.\n\nWhat do you actually do? Say that.\n\n'We fix water leaks in Tampa.' That works.\n'We file your business taxes in Florida.' That works.\n'Full-service solutions for all your needs.' Delete.",
+    format: 'Text-on-image graphic (strike-through)',
+    cta: "",
+    image: '',
+    stockKeywords: 'red strike-through text graphic, edit document red pen' },
+  { id: 'L5', day: 10, weekday: 'Wed', channel: 'linkedin', pillar: 5, pillarName: 'Plain English',
+    hook: "Stop calling it a website. Call it a storefront. Watch what changes in your design.",
+    body: "Word matters. \"Website\" sounds like a brochure — say everything, link everywhere, hope someone reads.\n\n\"Storefront\" sounds like a place of business — clear sign, one door, one offer, one staff member who greets you.\n\nWhen we rebuild Florida local-business sites at GeoLocally, we don't ask \"what should the website say?\" We ask \"if this were a storefront on Main Street, what's in the window?\"\n\nThat reframe alone removes 60% of the pages.",
+    format: 'Text post',
+    cta: "",
+    image: 'https://geolocally.com/blog-covers/why-a-video-first-storefront-beats-a-generic-website.png',
+    stockKeywords: '' },
+  { id: 'M5', day: 11, weekday: 'Thu', channel: 'meta', pillar: 1, pillarName: 'AEO Reality',
+    hook: "Your customers don't search like they used to. They ask.",
+    body: "Used to be: type 3 words, scroll 10 results, pick one.\nNow: ask a full question, get one answer.\n\nWhich one would you rather appear in?\n\n(15-sec video: typing \"dentist near me\" → asking out loud \"hey ChatGPT, who's the best dentist for a nervous patient in Tampa?\")",
+    format: '15-second reel/video',
+    cta: "Save this for later.",
+    image: '',
+    stockKeywords: 'person talking to phone voice assistant, hands using smartphone search' },
+  { id: 'L6', day: 12, weekday: 'Fri', channel: 'linkedin', pillar: 1, pillarName: 'AEO Reality',
+    hook: "AEO sounds technical. It isn't. Here's the whole thing in 60 seconds.",
+    body: "AEO = Answer Engine Optimization.\n\nAll it means: write your website so a robot reading at 1000 words per second can answer 3 questions in under a sentence each:\n\n1. What does this business do?\n2. Where do they do it?\n3. Why should I pick them?\n\nThat's it. No schema markup. No black magic. Most small businesses fail #1.",
+    format: 'Text post',
+    cta: "",
+    image: 'https://geolocally.com/blog-covers/what-aeo-means-for-local-businesses.png',
+    stockKeywords: '' },
+  { id: 'M6', day: 13, weekday: 'Sat', channel: 'meta', pillar: 2, pillarName: 'Mirror Moments',
+    hook: "Real before/after of a Florida med spa's homepage. Same business. 7 days apart.",
+    body: "Same offer. Same prices. Same photos.\n\nBefore: 4 paragraphs about \"holistic wellness journeys.\"\nAfter: one line — \"Botox, lip filler, and laser hair removal in Coral Gables. Walk-ins welcome on Saturdays.\"\n\nCalls in week 2: up 3x. (Owner's words.)\n\nTag a business owner who needs to see this.",
+    format: 'Before/after side-by-side image',
+    cta: "Tag a business owner.",
+    image: '',
+    stockKeywords: 'med spa lobby modern interior, clean aesthetic clinic reception' },
+
+  // ───────── WEEK 3 ─────────
+  { id: 'L7', day: 15, weekday: 'Mon', channel: 'linkedin', pillar: 3, pillarName: 'Operator Tips',
+    hook: "If your website were a person standing on the sidewalk, would anyone know what business it ran?",
+    body: "Try the test:\n\nStrip your homepage down to just the H1 and the first paragraph. Show it to a friend who's never heard of you. Ask: \"What does this business do?\"\n\nIf they hesitate, your AI search summary is broken too.\n\nThe 5-second sidewalk test costs nothing. It's the single best diagnostic I know.",
+    format: 'Text post',
+    cta: "",
+    image: '',
+    stockKeywords: 'person holding sandwich board sign sidewalk, sidewalk storefront sign' },
+  { id: 'M7', day: 16, weekday: 'Tue', channel: 'meta', pillar: 3, pillarName: 'Operator Tips',
+    hook: "Your phone number should be the biggest button on your homepage. It usually isn't.",
+    body: "Most small-business homepages bury the phone number in the footer.\n\nMost small-business customers want to make a phone call.\n\nDo the math.",
+    format: 'Annotated screenshot (homepage with phone button circled)',
+    cta: "",
+    image: '',
+    stockKeywords: 'big call-to-action button on website, phone icon button design' },
+  { id: 'L8', day: 17, weekday: 'Wed', channel: 'linkedin', pillar: 4, pillarName: 'Industry Spotlight',
+    hook: "Florida real estate agents: here's what your prospect sees when they ask 'best agent in [your city].'",
+    body: "Three patterns from this week's audits:\n\n1. AI summary mentions 1 agent by name — the one with a clear niche on their site (\"first-time buyers in Lakeland\").\n2. Everyone else gets bundled into a generic \"several agents in the area.\"\n3. The MLS rank had zero correlation with the AI pick.\n\nThe niche line on your About page is doing more work than your closed-volume number.",
+    format: 'Single image post',
+    cta: "DM me — I'll do this live for your zip code.",
+    image: '',
+    stockKeywords: 'florida real estate for sale sign, realtor with house keys, home for sale yard' },
+  { id: 'M8', day: 18, weekday: 'Thu', channel: 'meta', pillar: 4, pillarName: 'Industry Spotlight',
+    hook: "Dental clinics in Florida: here's what new patients ask AI before they call you.",
+    body: "From real ChatGPT logs this month:\n\n1. \"Which dentists in [city] take new patients?\"\n2. \"Do any dentists near me do Saturday appointments?\"\n3. \"Best pediatric dentist for an anxious kid in [city]?\"\n4. \"Dentists that accept [insurance plan] near me?\"\n5. \"Is [your clinic name] good?\"\n\nIf your homepage doesn't answer questions 1–4 clearly, you don't show up for them.\n\nWhat would you add to this list?",
+    format: 'List graphic',
+    cta: "What would you add?",
+    image: '',
+    stockKeywords: 'modern dental clinic exterior, dentist office signage florida' },
+  { id: 'L9', day: 19, weekday: 'Fri', channel: 'linkedin', pillar: 2, pillarName: 'Mirror Moments',
+    hook: "I audited 10 Florida law firm websites this week. Here's the pattern that's costing them clients.",
+    body: "5 things every site had wrong:\n\n1. \"Practice areas\" buried 3 clicks deep instead of on the homepage.\n2. No mention of the city anywhere in the H1.\n3. Stock photo of a gavel. (Nobody is sold by a gavel.)\n4. \"Free consultation\" CTA with no time commitment shown (\"15 minutes\" converts 2x better).\n5. No video. In 2026. From firms charging $400/hr.\n\nFix any 2 of these. Watch what happens.",
+    format: 'Text post',
+    cta: "",
+    image: '',
+    stockKeywords: 'law firm office desk books, attorney office interior professional' },
+  { id: 'M9', day: 20, weekday: 'Sat', channel: 'meta', pillar: 5, pillarName: 'Plain English',
+    hook: "Your homepage is not a website. It's a doorman.",
+    body: "A doorman has one job: decide who comes in.\n\nThey ask 3 questions: who are you, what do you want, are you in the right place.\n\nGood doorman: 5 seconds and you're in.\nBad doorman: 30 seconds of confusion and you walk away.\n\nWhich one is your homepage?",
+    format: 'Doorman analogy graphic',
+    cta: "",
+    image: '',
+    stockKeywords: 'hotel doorman uniform, building entrance concierge' },
+
+  // ───────── WEEK 4 ─────────
+  { id: 'L10', day: 22, weekday: 'Mon', channel: 'linkedin', pillar: 5, pillarName: 'Plain English',
+    hook: "Three phrases I'd ban from every local-business homepage.",
+    body: "1. \"Full-service.\" → Means nothing. Cite a specific service instead.\n\n2. \"Family-owned and operated since 1982.\" → Bury it in the footer. Nobody hires you because of a date.\n\n3. \"Committed to excellence.\" → Excellence at WHAT? Say the noun.\n\nIf any of these are on your H1 right now, you're paying SEO money to sound like everyone else.",
+    format: 'Text post',
+    cta: "Which phrase did I miss?",
+    image: '',
+    stockKeywords: '' },
+  { id: 'M10', day: 23, weekday: 'Tue', channel: 'meta', pillar: 1, pillarName: 'AEO Reality',
+    hook: "Why ranking #1 on Google isn't enough anymore — in 60 seconds.",
+    body: "Two things changed in the last year:\n\n1. Google now puts an AI Overview at the top before any blue links.\n2. ChatGPT and Perplexity each have millions of users searching for local businesses every day.\n\nIf the AI summary doesn't mention you, you're invisible — even at #1.",
+    format: 'Short reel/slide deck',
+    cta: "",
+    image: 'https://geolocally.com/hero-cinematic.jpg',
+    stockKeywords: '' },
+  { id: 'L11', day: 24, weekday: 'Wed', channel: 'linkedin', pillar: 1, pillarName: 'AEO Reality',
+    hook: "Google ranking won't save you if the AI summary above it doesn't mention you.",
+    body: "Old SEO question: \"Where do I rank?\"\nNew question: \"Does the AI mention me when someone asks the question my customer would ask?\"\n\nDifferent question. Different optimization.\n\nThe Local Pack still matters. But it's now framed by an AI-generated paragraph that you don't control — unless your site is written for the AI to lift from.\n\nThat's what AEO is.",
+    format: 'Carousel (3 slides)',
+    cta: "",
+    image: '',
+    stockKeywords: 'google search results screen, ai overview answer box' },
+  { id: 'M11', day: 25, weekday: 'Thu', channel: 'meta', pillar: 3, pillarName: 'Operator Tips',
+    hook: "The 5-second rule: I land on your homepage. If I don't know what you do in 5 seconds, I leave.",
+    body: "Try it on your own site right now.\n\nOpen your homepage on your phone. Start a 5-second timer. Read.\n\nDo you know — without scrolling — what the business does, where they do it, and how to take the next step?\n\nIf not, that's why your bounce rate looks the way it does.",
+    format: 'Video — 5-second countdown over a homepage',
+    cta: "Test yours — reply your URL.",
+    image: '',
+    stockKeywords: 'countdown timer 5 seconds, stopwatch laptop screen' },
+  { id: 'L12', day: 26, weekday: 'Fri', channel: 'linkedin', pillar: 3, pillarName: 'Operator Tips',
+    hook: "Read your homepage out loud right now. If it takes more than 5 seconds to say what you do, rewrite it.",
+    body: "This is the cheapest diagnostic in marketing.\n\nRead the H1 and the first paragraph aloud. Time it.\n\nUnder 5 seconds + clear: you're in the top 10% of local-business websites.\n\nOver 5 seconds OR vague: you have a clarity problem, not a traffic problem.\n\nMore traffic to an unclear site just buys you more bounces.",
+    format: 'Text post',
+    cta: "",
+    image: 'https://geolocally.com/hero-cinematic.jpg',
+    stockKeywords: '' },
+  { id: 'M12', day: 27, weekday: 'Sat', channel: 'meta', pillar: 2, pillarName: 'Mirror Moments',
+    hook: "Want to see exactly what ChatGPT says about your business? I'll do it free for the first 10 replies.",
+    body: "Comment 'me' below and the name of your business.\n\nI'll run it through ChatGPT, Perplexity, and Google's AI Overview tonight. Screenshot all three results. Send them back to you in a DM.\n\nNo pitch. No spam. Just a free look at what your prospect sees before they call you.",
+    format: 'Lead-magnet graphic',
+    cta: "Reply 'me' + business name.",
+    image: '',
+    stockKeywords: 'magnifying glass on laptop screen, free audit graphic' },
+
+  // ───────── WEEK 5 ─────────
+  { id: 'L13', day: 29, weekday: 'Mon', channel: 'linkedin', pillar: 4, pillarName: 'Industry Spotlight',
+    hook: "A salon owner asked me what AEO has to do with her. Here's what I showed her in 5 minutes.",
+    body: "We typed her name into ChatGPT: \"Looking for a salon in Coral Gables that does balayage for curly hair.\"\n\nThe AI mentioned 3 other salons. Not hers.\n\nHers ranks #2 on Google for \"salon Coral Gables.\" Doesn't matter. The AI doesn't read Google's rank — it reads the website's clarity.\n\nWe added one sentence: \"Balayage and color correction for curly and textured hair.\" To the H1.\n\nNext week the AI included her. Same domain authority. Same backlinks. One sentence change.",
+    format: 'Carousel (5 slides)',
+    cta: "",
+    image: '',
+    stockKeywords: 'salon interior modern hairdresser, hair stylist working salon chair' },
+  { id: 'M13', day: 30, weekday: 'Tue', channel: 'meta', pillar: 4, pillarName: 'Industry Spotlight',
+    hook: "Florida roofers — here's how AI describes you to a homeowner with a leaky roof.",
+    body: "I asked ChatGPT: \"My roof is leaking after the storm in Tampa, who should I call?\"\n\nIt named 2 companies. Both had one thing in common — their homepage said \"emergency roof repair\" and a city name.\n\nThe 8 others I checked? Generic \"residential and commercial roofing solutions\" copy.\n\nGuess who got the emergency call.",
+    format: 'Single image post',
+    cta: "Want yours pulled? Drop your business name.",
+    image: '',
+    stockKeywords: 'roof tiles damaged leak, roofer working on house, storm damage roof' },
+  { id: 'L14', day: 31, weekday: 'Wed', channel: 'linkedin', pillar: 2, pillarName: 'Mirror Moments',
+    hook: "Before/after: what a $499 GeoLocally page actually changes in 7 days.",
+    body: "Real client. Real numbers.\n\nBefore: 47 visitors/day. 38% bounce on mobile. 2 calls/week.\n\nWe rebuilt the homepage — one offer, one city, one explainer video, one call button.\n\nAfter (week 2): 51 visitors/day (basically flat). 12% bounce on mobile. 9 calls/week.\n\nNobody got more traffic. The traffic just understood what to do.",
+    format: 'Single image (metrics screenshot)',
+    cta: "Want yours? Reply 'storefront'.",
+    image: 'https://geolocally.com/blog-covers/how-to-make-your-business-easier-to-understand-online.png',
+    stockKeywords: '' },
+  { id: 'M14', day: 32, weekday: 'Thu', channel: 'meta', pillar: 3, pillarName: 'Operator Tips',
+    hook: "If your hours aren't on your homepage, AI tells customers 'they may be closed.' Move hours above the fold today.",
+    body: "Smallest fix on this whole feed.\n\nBiggest impact in AI search results.\n\nCheck your site. Where are your hours? Footer? Contact page? Above the fold?\n\nIf they're not visible without scrolling, your prospect's AI assistant is hedging on whether to recommend you.",
+    format: 'Image — clock on storefront',
+    cta: "",
+    image: '',
+    stockKeywords: 'open closed sign storefront, business hours sign on door, clock storefront' },
+  { id: 'L15', day: 33, weekday: 'Fri', channel: 'linkedin', pillar: 5, pillarName: 'Plain English',
+    hook: "If a stranger can't tell what you do from your homepage in 5 seconds, you're not invisible. You're forgettable. That's worse.",
+    body: "Invisible is a traffic problem. You can buy your way out of it.\n\nForgettable is a clarity problem. More traffic just buys more forgotten visits.\n\nThe whole GeoLocally pitch in one line: we don't help you get found. We help you get understood, fast, by the people who already found you.",
+    format: 'Text post',
+    cta: "What's your one-line offer?",
+    image: '',
+    stockKeywords: '' },
+  { id: 'M15', day: 34, weekday: 'Sat', channel: 'meta', pillar: 1, pillarName: 'AEO Reality',
+    hook: "Last year your customers Googled you. This year ChatGPT decides if you exist.",
+    body: "Not exaggerating.\n\nWhen someone asks ChatGPT for a recommendation, the AI doesn't show 10 options. It picks 1 or 2.\n\nIf you're not the pick, the next 10 names don't matter. There's no scroll. There's no \"see more results.\"\n\nThis is the new top of funnel for local businesses. Plan accordingly.",
+    format: 'Split-screen graphic — Google logo vs ChatGPT logo',
+    cta: "Save this.",
+    image: '',
+    stockKeywords: 'split screen google vs chatgpt, ai chat vs traditional search' },
+];
+
+const PILLAR_CLASS = { 1: 'p1', 2: 'p2', 3: 'p3', 4: 'p4', 5: 'p5' };
+const PILLAR_EMOJI = { 1: '🤖', 2: '🪞', 3: '🛠️', 4: '🎯', 5: '✏️' };
+
+function renderCalendar() {
+  const cal = document.getElementById('calendar');
+  const weeks = [
+    { label: 'Week 1', posts: POSTS.slice(0, 6) },
+    { label: 'Week 2', posts: POSTS.slice(6, 12) },
+    { label: 'Week 3', posts: POSTS.slice(12, 18) },
+    { label: 'Week 4', posts: POSTS.slice(18, 24) },
+    { label: 'Week 5', posts: POSTS.slice(24, 30) },
+  ];
+  cal.innerHTML = `
+    <div class="grid day-header" style="margin-bottom: 8px;">
+      <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    ${weeks.map(w => `
+      <div class="week">
+        <div class="week-label">${w.label}</div>
+        <div class="grid">
+          ${w.posts.map(p => cardHTML(p)).join('')}
+        </div>
+      </div>
+    `).join('')}
+  `;
+  document.querySelectorAll('.card').forEach(c => {
+    c.addEventListener('click', () => openModal(c.dataset.id));
+  });
+}
+
+function cardHTML(p) {
+  const pClass = PILLAR_CLASS[p.pillar];
+  const emoji = PILLAR_EMOJI[p.pillar];
+  const thumb = p.image
+    ? `<div class="thumb" style="background-image: url('${p.image}')">
+         <span class="channel-badge ${p.channel}">${p.channel === 'linkedin' ? 'LinkedIn' : 'Meta'}</span>
+         <span class="day-num">${p.id}</span>
+       </div>`
+    : `<div class="thumb">
+         <div class="thumb-fallback ${pClass}">${emoji}</div>
+         <span class="channel-badge ${p.channel}">${p.channel === 'linkedin' ? 'LinkedIn' : 'Meta'}</span>
+         <span class="day-num">${p.id}</span>
+       </div>`;
+  return `
+    <div class="card" data-id="${p.id}">
+      ${thumb}
+      <div class="card-body">
+        <div class="pillar-chip"><span class="dot dot-${pClass}"></span>${p.pillarName}</div>
+        <div class="hook">${p.hook}</div>
+        <div class="card-footer">
+          <span class="format-tag">${p.format.split(' ')[0]}</span>
+          <span>${p.weekday}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function openModal(id) {
+  const p = POSTS.find(x => x.id === id);
+  if (!p) return;
+  const pClass = PILLAR_CLASS[p.pillar];
+  const emoji = PILLAR_EMOJI[p.pillar];
+  const thumb = p.image
+    ? `<div class="modal-thumb" style="background-image: url('${p.image}')"><button class="modal-close" onclick="closeModal()">×</button></div>`
+    : `<div class="modal-thumb"><div class="thumb-fallback ${pClass}" style="font-size:64px">${emoji}</div><button class="modal-close" onclick="closeModal()">×</button></div>`;
+  const fullCopy = `${p.hook}\n\n${p.body}${p.cta ? '\n\n' + p.cta : ''}`;
+  const inner = document.getElementById('modal-inner');
+  inner.innerHTML = `
+    ${thumb}
+    <div class="modal-body">
+      <div class="modal-meta">
+        <span class="chip"><span class="dot dot-${p.channel}"></span>${p.channel === 'linkedin' ? 'LinkedIn' : 'Meta (FB/IG)'}</span>
+        <span class="chip"><span class="dot dot-${pClass}"></span>${p.pillarName}</span>
+        <span class="chip">${p.weekday} · Slot ${p.id}</span>
+      </div>
+      <div class="modal-hook">${p.hook}</div>
+      <div class="modal-section">
+        <h4>Body</h4>
+        <div class="body-text">${p.body.replace(/\n/g, '<br>')}</div>
+      </div>
+      ${p.cta ? `<div class="modal-section"><h4>Call to action</h4><p>${p.cta}</p></div>` : ''}
+      <div class="modal-section">
+        <h4>Format</h4>
+        <p>${p.format}</p>
+      </div>
+      <div class="modal-section">
+        <h4>Image</h4>
+        ${p.image
+          ? `<p>Using built-in GeoLocally asset: <a href="${p.image}" target="_blank" style="color: var(--linkedin)">${p.image.split('/').pop()}</a></p>`
+          : `<p class="stock-note">Stock photo suggestion — search on Unsplash or Pexels: <strong style="color: var(--text); font-style: normal">${p.stockKeywords}</strong></p>`}
+      </div>
+      <button class="copy-btn ${p.channel === 'meta' ? 'meta' : ''}" onclick="copyToClipboard(this, \`${fullCopy.replace(/`/g, '\\`').replace(/\$/g, '\\$')}\`)">
+        Copy full post text
+      </button>
+    </div>
+  `;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function copyToClipboard(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied to clipboard';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+renderCalendar();
+</script>
+</body>
+</html>
