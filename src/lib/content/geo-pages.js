@@ -359,6 +359,428 @@ export const geoPages = {
       body: "Start with a storefront that says what you do clearly, shows where you serve, and gives customers one clean next step.",
     },
   },
+  orlando: {
+    slug: "orlando",
+    title: "GeoLocally Orlando | Clearer Landing Pages for Orlando Local Businesses",
+    description:
+      "GeoLocally builds focused Orlando landing pages and short explainer videos for local service businesses. Clearer positioning, faster decisions, $499.",
+    locationLabel: "Orlando local businesses",
+    heroTitle: "In Orlando, the clearest business gets the call.",
+    heroBody:
+      "Orlando is dense with local competition — and most websites still sound the same. GeoLocally builds focused Orlando landing pages that explain what you do, where you serve, and how to contact you without making customers dig for it.",
+    heroBullets: [
+      "Built for Orlando service businesses",
+      "Mobile-first, fast to read",
+      "One clear next step",
+      "Starting at $499",
+    ],
+    sections: [
+      {
+        title: "Why this matters in Orlando",
+        paragraphs: [
+          "Orlando is a high-volume search market. Tourists, new residents, and locals all search the same way: ask a question, take the first clear answer.",
+          "If your website takes ten seconds to explain itself, the customer is already calling someone else.",
+        ],
+        list: [
+          "home services",
+          "dental and medical",
+          "legal and accounting",
+          "salons and personal care",
+          "auto repair and detailing",
+          "real estate",
+        ],
+        listIntro: "Orlando businesses we work best with:",
+      },
+      {
+        title: "What we build for Orlando",
+        paragraphs: [
+          "One focused landing page built around your real Orlando offer — not a generic template with your name swapped in.",
+        ],
+        list: [
+          "copy that says what you do and where you serve",
+          "a custom animated explainer video",
+          "clean structure for Google and AI search",
+          "mobile-first design that loads fast",
+          "hosting and launch support",
+        ],
+      },
+      {
+        title: "Why a storefront beats a website",
+        paragraphs: [
+          "Orlando customers don't want a tour of your services. They want a yes/no answer in under five seconds. A storefront page is built around that — one offer, one city, one clear call to action.",
+        ],
+      },
+    ],
+    process: [
+      { title: "You send the basics", body: "Business name, Orlando service area, category, and current site if you have one." },
+      { title: "We build the storefront", body: "We write the page, frame the offer, and produce the explainer video." },
+      { title: "You review and launch", body: "You approve the final draft and we help get it live." },
+    ],
+    faqs: [
+      { question: "Does this work if I serve suburbs too?", answer: "Yes. We structure the page around Orlando plus the surrounding service area you actually cover." },
+      { question: "Can this replace my whole website?", answer: "It can. Or it can run alongside an existing site as a focused conversion page." },
+      { question: "How long does it take?", answer: "Three to five business days from intake to launch-ready draft." },
+      { question: "What if I'm not in central Orlando?", answer: "Fine. Anywhere in metro Orlando works — including Winter Park, Kissimmee, Sanford, and Lake Mary." },
+    ],
+    finalCta: {
+      title: "Orlando is too competitive to look like every other website.",
+      body: "Tell us what you do and where you serve. If GeoLocally can help, we'll reply with the next step.",
+    },
+  },
+  jacksonville: {
+    slug: "jacksonville",
+    title: "GeoLocally Jacksonville | Clearer Landing Pages for Jacksonville Businesses",
+    description:
+      "GeoLocally builds focused Jacksonville landing pages and short explainer videos for local service businesses across Northeast Florida. Starting at $499.",
+    locationLabel: "Jacksonville local businesses",
+    heroTitle: "Jacksonville is huge. Your storefront should make that an advantage, not a problem.",
+    heroBody:
+      "Jacksonville is the largest city by area in the continental US. Most local websites still talk like they're competing in a small town — vague, generic, hard to place. GeoLocally builds Jacksonville landing pages that anchor your business to a specific service and a specific footprint.",
+    heroBullets: [
+      "Built for Jacksonville and Northeast Florida",
+      "Specific on service, specific on area",
+      "Mobile-first and fast",
+      "Starting at $499",
+    ],
+    sections: [
+      {
+        title: "Why Jacksonville is different",
+        paragraphs: [
+          "A customer in Mandarin doesn't want the same answer as a customer in Riverside. Your website probably treats them identically.",
+          "We help you say what you do AND where you do it in a way that lets both customers and Google place you correctly.",
+        ],
+      },
+      {
+        title: "Best fit industries in Jacksonville",
+        paragraphs: ["Strong fit for:"],
+        list: [
+          "home services (HVAC, plumbing, roofing, pest control)",
+          "dental and medical practices",
+          "legal and accounting firms",
+          "insurance agencies",
+          "auto services",
+          "salons and personal care",
+          "real estate and property management",
+        ],
+      },
+      {
+        title: "What you get",
+        paragraphs: [
+          "One landing page built around your real Jacksonville offer, one custom explainer video, clean structure for search, and a single clear lead path.",
+        ],
+      },
+    ],
+    process: [
+      { title: "You send the basics", body: "Business name, service area, category." },
+      { title: "We build it", body: "Copy, structure, explainer video." },
+      { title: "You launch", body: "Review, approve, go live." },
+    ],
+    faqs: [
+      { question: "Can this work for multiple Jax neighborhoods?", answer: "Yes. We structure the page around your real service footprint — Southside, Northside, Beaches, Orange Park, Ponte Vedra, whatever applies." },
+      { question: "Do I need a Jacksonville-specific page if I already have a website?", answer: "Yes. A focused city-and-service page consistently outperforms a generic homepage for local search." },
+      { question: "What about military/veterans markets?", answer: "Worth calling out explicitly on the page if you serve them — Jacksonville has a major military population and AI search picks up niche language well." },
+      { question: "How fast?", answer: "Three to five business days." },
+    ],
+    finalCta: {
+      title: "Jacksonville rewards businesses that say what they do, where they do it.",
+      body: "Tell us about your business. We'll show you what a clearer storefront could look like.",
+    },
+  },
+  "fort-lauderdale": {
+    slug: "fort-lauderdale",
+    title: "GeoLocally Fort Lauderdale | Clearer Landing Pages for Local Businesses",
+    description:
+      "GeoLocally builds focused Fort Lauderdale landing pages and short explainer videos for local businesses in Broward County. Starting at $499.",
+    locationLabel: "Fort Lauderdale local businesses",
+    heroTitle: "Fort Lauderdale customers compare fast. Your storefront should land faster.",
+    heroBody:
+      "Fort Lauderdale is competitive across nearly every local service category — and customers shop on mobile, in seconds. GeoLocally builds focused landing pages for Fort Lauderdale businesses that need to be understood in one glance.",
+    heroBullets: [
+      "Built for Fort Lauderdale and greater Broward",
+      "Mobile-first, fast to scan",
+      "Designed for high-comparison categories",
+      "Starting at $499",
+    ],
+    sections: [
+      {
+        title: "Why Fort Lauderdale is different",
+        paragraphs: [
+          "High disposable income, high mobile usage, and a customer base that researches everything online first.",
+          "That means your storefront has to make sense in five seconds and look credible in five more. Generic websites don't survive that.",
+        ],
+      },
+      {
+        title: "Best fit industries",
+        paragraphs: ["Especially strong for:"],
+        list: [
+          "marine, boating, and yacht services",
+          "real estate and property management",
+          "dental and aesthetic services",
+          "med spas and personal care",
+          "legal and financial services",
+          "home services and contractors",
+          "hospitality and event-adjacent businesses",
+        ],
+      },
+      {
+        title: "What you get",
+        paragraphs: [
+          "One focused landing page, custom explainer video, clean search structure, mobile-first design, hosting and launch support.",
+        ],
+      },
+    ],
+    process: [
+      { title: "Send the basics", body: "Business, service area, current site if any." },
+      { title: "We build", body: "Copy, design, video — all built around your real offer." },
+      { title: "Launch", body: "You review, approve, and go live in days." },
+    ],
+    faqs: [
+      { question: "Do you handle businesses outside Fort Lauderdale proper?", answer: "Yes. Anywhere in Broward — Pompano, Coral Springs, Plantation, Hollywood, Davie, Weston — works the same way." },
+      { question: "Will this hurt my existing SEO?", answer: "No. A focused landing page is additive, not a replacement for an existing site." },
+      { question: "What about Spanish-language customers?", answer: "We can produce the page bilingually if a meaningful share of your customers prefer Spanish." },
+      { question: "How fast?", answer: "Three to five business days." },
+    ],
+    finalCta: {
+      title: "In Fort Lauderdale, clarity is the cheapest competitive advantage you can buy.",
+      body: "Tell us what you do. We'll show you what a clearer storefront could look like.",
+    },
+  },
+  "st-petersburg": {
+    slug: "st-petersburg",
+    title: "GeoLocally St. Petersburg | Clearer Landing Pages for St. Pete Businesses",
+    description:
+      "GeoLocally builds focused St. Petersburg landing pages and short explainer videos for local service businesses across Pinellas County. Starting at $499.",
+    locationLabel: "St. Petersburg local businesses",
+    heroTitle: "St. Pete has the customers. Your storefront needs to make the first impression count.",
+    heroBody:
+      "St. Petersburg has a strong mix of local service businesses serving a customer base that values clarity and trust. GeoLocally builds focused landing pages for St. Pete businesses that need a sharper online front door.",
+    heroBullets: [
+      "Built for St. Petersburg and greater Pinellas",
+      "Plain-language, easy-to-trust design",
+      "Mobile-first, fast to read",
+      "Starting at $499",
+    ],
+    sections: [
+      {
+        title: "Why this matters in St. Pete",
+        paragraphs: [
+          "A meaningful share of St. Pete customers are retirees, snowbirds, or new arrivals from larger metros. They expect online experiences that are clear, calm, and easy to act on.",
+          "Most local websites overwhelm them. A focused storefront doesn't.",
+        ],
+      },
+      {
+        title: "Best fit industries in St. Pete",
+        paragraphs: ["Strong fit for:"],
+        list: [
+          "home services (HVAC, plumbing, roofing)",
+          "dental, medical, and senior-focused care",
+          "legal and estate planning",
+          "financial advisors",
+          "salons and personal care",
+          "real estate and property management",
+          "in-home services and concierge",
+        ],
+      },
+      {
+        title: "What you get",
+        paragraphs: [
+          "One focused landing page, custom explainer video, clean structure for search, mobile-first design, hosting and launch support.",
+        ],
+      },
+    ],
+    process: [
+      { title: "You send the basics", body: "Business info, service area, current site if any." },
+      { title: "We build", body: "Copy, structure, video — all custom to your offer." },
+      { title: "You launch", body: "Review, approve, go live." },
+    ],
+    faqs: [
+      { question: "Do you cover the Tampa Bay area too?", answer: "Yes — we already have a Tampa page, and we can build St. Pete-specific or combined Pinellas-area positioning." },
+      { question: "What about businesses that primarily serve older customers?", answer: "Strong use case. Clarity wins doubly in that audience." },
+      { question: "Can the page handle two locations?", answer: "Yes — many St. Pete businesses also serve Clearwater or south Tampa. We can structure the page around that footprint." },
+      { question: "How fast?", answer: "Three to five business days." },
+    ],
+    finalCta: {
+      title: "St. Pete rewards businesses that are easy to understand.",
+      body: "Tell us about your business. We'll show you what a clearer storefront could look like.",
+    },
+  },
+  "west-palm-beach": {
+    slug: "west-palm-beach",
+    title: "GeoLocally West Palm Beach | Clearer Landing Pages for WPB Businesses",
+    description:
+      "GeoLocally builds focused West Palm Beach landing pages and short explainer videos for local businesses across Palm Beach County. Starting at $499.",
+    locationLabel: "West Palm Beach local businesses",
+    heroTitle: "Palm Beach customers expect a polished first impression. Most local websites don't deliver one.",
+    heroBody:
+      "West Palm Beach customers are used to high-end brands and clean design. A generic small-business site doesn't just fail to convert — it actively signals the wrong tier. GeoLocally builds focused storefronts that look as credible as your service actually is.",
+    heroBullets: [
+      "Built for West Palm Beach and greater Palm Beach County",
+      "Clean, credible, on-brand design",
+      "Mobile-first, fast to scan",
+      "Starting at $499",
+    ],
+    sections: [
+      {
+        title: "Why West Palm Beach is different",
+        paragraphs: [
+          "High disposable income. High expectations. A customer base that's seen good design and notices when yours isn't.",
+          "A polished storefront isn't vanity here — it's the price of entry to be considered.",
+        ],
+      },
+      {
+        title: "Best fit industries",
+        paragraphs: ["Especially strong for:"],
+        list: [
+          "wealth management and financial advisors",
+          "high-end dental and aesthetic services",
+          "med spas and concierge health",
+          "legal services (estate, family, real estate law)",
+          "luxury home services and concierge contractors",
+          "real estate and property management",
+          "art, design, and event services",
+        ],
+      },
+      {
+        title: "What you get",
+        paragraphs: [
+          "One focused landing page, custom explainer video, on-brand design tuned to your category, clean search structure, hosting and launch support.",
+        ],
+      },
+    ],
+    process: [
+      { title: "Send the basics", body: "Business, service area, current site, brand assets if any." },
+      { title: "We build", body: "Copy, design, and explainer video around your real positioning." },
+      { title: "Launch", body: "Review, approve, go live." },
+    ],
+    faqs: [
+      { question: "Do you cover Palm Beach proper and Jupiter too?", answer: "Yes. Anywhere in Palm Beach County, including Jupiter, Boca Raton, Delray, and Wellington." },
+      { question: "Can the design feel premium without being expensive?", answer: "That's exactly what this is built for. Polished and clear, without an enterprise budget." },
+      { question: "What about businesses targeting Palm Beach Island specifically?", answer: "Strong use case — we can position around the island/mainland distinction directly." },
+      { question: "How fast?", answer: "Three to five business days." },
+    ],
+    finalCta: {
+      title: "In Palm Beach, your storefront is your handshake.",
+      body: "Tell us about your business. We'll show you what a clearer, more credible storefront could look like.",
+    },
+  },
+  "cape-coral": {
+    slug: "cape-coral",
+    title: "GeoLocally Cape Coral | Clearer Landing Pages for Cape Coral Businesses",
+    description:
+      "GeoLocally builds focused Cape Coral landing pages and short explainer videos for local service businesses across Southwest Florida. Starting at $499.",
+    locationLabel: "Cape Coral local businesses",
+    heroTitle: "Cape Coral is growing fast. Your storefront should be ready for the new customers searching today.",
+    heroBody:
+      "Cape Coral is one of the fastest-growing cities in the country. New residents are searching for plumbers, contractors, dentists, and realtors every day — and choosing whoever shows up clearest first. GeoLocally builds focused storefronts that help local businesses get found by the people moving in.",
+    heroBullets: [
+      "Built for Cape Coral and Southwest Florida",
+      "Designed for new-resident search behavior",
+      "Mobile-first and fast",
+      "Starting at $499",
+    ],
+    sections: [
+      {
+        title: "Why this matters in Cape Coral",
+        paragraphs: [
+          "The fastest growing customer pool here is people who don't know your name yet. They are searching the way new arrivals always do — through Google, ChatGPT, and Maps reviews.",
+          "If your website looks like a 2014 template, you lose the first impression even when you're the better service.",
+        ],
+      },
+      {
+        title: "Best fit industries in Cape Coral",
+        paragraphs: ["Strong fit for:"],
+        list: [
+          "home services and contractors",
+          "construction and remodeling",
+          "real estate and property management",
+          "marine and waterfront services",
+          "dental and medical",
+          "legal and insurance",
+          "auto services",
+        ],
+      },
+      {
+        title: "What you get",
+        paragraphs: [
+          "One focused Cape Coral landing page, custom explainer video, clean structure for search, mobile-first design, hosting and launch support.",
+        ],
+      },
+    ],
+    process: [
+      { title: "Send the basics", body: "Business, service area, current site." },
+      { title: "We build", body: "Copy, structure, video." },
+      { title: "Launch", body: "Review, approve, go live." },
+    ],
+    faqs: [
+      { question: "Do you cover Fort Myers and Naples too?", answer: "Yes. Anywhere in Lee or Collier County — the same pattern works across SW Florida." },
+      { question: "What about waterfront-specific businesses?", answer: "Strong use case. We can position around canal/boat access directly." },
+      { question: "Does this help with seasonal customer surges?", answer: "Yes — a clear page converts visiting and new-resident traffic without you doing extra work." },
+      { question: "How fast?", answer: "Three to five business days." },
+    ],
+    finalCta: {
+      title: "Cape Coral is growing — get a storefront the new customers can actually find.",
+      body: "Tell us about your business. We'll show you what a clearer storefront could look like.",
+    },
+  },
+  tallahassee: {
+    slug: "tallahassee",
+    title: "GeoLocally Tallahassee | Clearer Landing Pages for Tallahassee Businesses",
+    description:
+      "GeoLocally builds focused Tallahassee landing pages and short explainer videos for local service businesses serving North Florida. Starting at $499.",
+    locationLabel: "Tallahassee local businesses",
+    heroTitle: "Tallahassee customers research first, call second. Your storefront has to win the first part.",
+    heroBody:
+      "As the state capital and a major university town, Tallahassee customers skew professional, deliberate, and detail-oriented. They Google before they call. GeoLocally builds focused storefronts that give them the answers they're looking for in seconds.",
+    heroBullets: [
+      "Built for Tallahassee and North Florida",
+      "Clear, professional, no fluff",
+      "Mobile-first and fast",
+      "Starting at $499",
+    ],
+    sections: [
+      {
+        title: "Why this matters in Tallahassee",
+        paragraphs: [
+          "Government workers, university faculty, professionals, and students all share one habit: they research thoroughly before engaging.",
+          "If your website is vague, they don't ask follow-up questions. They just keep scrolling.",
+        ],
+      },
+      {
+        title: "Best fit industries in Tallahassee",
+        paragraphs: ["Strong fit for:"],
+        list: [
+          "legal services (regulatory, lobbying, government contracts)",
+          "accounting and tax services",
+          "dental and medical",
+          "home services and contractors",
+          "auto services",
+          "real estate and property management",
+          "professional services serving FSU/FAMU",
+        ],
+      },
+      {
+        title: "What you get",
+        paragraphs: [
+          "One focused Tallahassee landing page, custom explainer video, clean search structure, mobile-first design, hosting and launch support.",
+        ],
+      },
+    ],
+    process: [
+      { title: "Send the basics", body: "Business, service area, current site." },
+      { title: "We build", body: "Copy, structure, explainer video." },
+      { title: "Launch", body: "Review, approve, go live." },
+    ],
+    faqs: [
+      { question: "Do you cover all of North Florida?", answer: "Yes — Tallahassee, Quincy, Crawfordville, Monticello, anywhere in the metro plus the surrounding counties." },
+      { question: "What about businesses that work with state government?", answer: "Strong use case. We can position around state-contractor credibility specifically." },
+      { question: "Does the page handle B2B and B2C audiences?", answer: "Yes — we structure around your primary customer and gracefully include the secondary." },
+      { question: "How fast?", answer: "Three to five business days." },
+    ],
+    finalCta: {
+      title: "Tallahassee rewards businesses that respect their customers' time.",
+      body: "Tell us about your business. We'll show you what a clearer storefront could look like.",
+    },
+  },
 };
 
 export const geoPageList = Object.values(geoPages).map((page) => ({
