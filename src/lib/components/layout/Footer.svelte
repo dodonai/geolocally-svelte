@@ -2,15 +2,36 @@
 	import { Mail } from 'lucide-svelte';
 	import BrandLogo from '$lib/components/layout/BrandLogo.svelte';
 
-	const exploreLinks = [
-		{ label: 'Home', href: '/' },
+	const companyLinks = [
+		{ label: 'Pricing', href: '/pricing' },
+		{ label: 'FAQ', href: '/faq' },
+		{ label: 'About', href: '/about' },
+		{ label: 'Contact', href: '/contact' },
 		{ label: 'Blog', href: '/blog' }
 	];
 
-	const marketLinks = [
-		{ label: 'Florida', href: '/florida' },
+	const cityLinks = [
+		{ label: 'Florida (statewide)', href: '/florida' },
 		{ label: 'Miami', href: '/miami' },
-		{ label: 'Tampa', href: '/tampa' }
+		{ label: 'Tampa', href: '/tampa' },
+		{ label: 'Orlando', href: '/orlando' },
+		{ label: 'Jacksonville', href: '/jacksonville' },
+		{ label: 'Fort Lauderdale', href: '/fort-lauderdale' },
+		{ label: 'St. Petersburg', href: '/st-petersburg' },
+		{ label: 'West Palm Beach', href: '/west-palm-beach' },
+		{ label: 'Cape Coral', href: '/cape-coral' },
+		{ label: 'Tallahassee', href: '/tallahassee' }
+	];
+
+	const verticalLinks = [
+		{ label: 'Plumbers', href: '/for/plumbers' },
+		{ label: 'Dentists', href: '/for/dentists' },
+		{ label: 'Lawyers', href: '/for/lawyers' },
+		{ label: 'Real Estate Agents', href: '/for/real-estate-agents' },
+		{ label: 'Insurance Agents', href: '/for/insurance-agents' },
+		{ label: 'Salons & Med Spas', href: '/for/salons-and-medspas' },
+		{ label: 'Auto Repair', href: '/for/auto-repair' },
+		{ label: 'Accountants', href: '/for/accountants' }
 	];
 
 	const legalLinks = [
@@ -42,82 +63,83 @@
 	];
 </script>
 
-<footer class="bg-gray-950 text-gray-400 py-10">
-	<div
-		class="container mx-auto px-4 max-w-6xl grid gap-10 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]"
-	>
-		<div class="text-center md:text-left">
-			<BrandLogo
-				variant="light"
-				sizeClass="mx-auto md:mx-0 mb-4 w-[180px] sm:w-[200px]"
-				alt="GeoLocally"
-			/>
-			<p class="text-sm max-w-md mb-6">
-				Focused landing pages and short explainer videos for local businesses that need to look
-				clearer online.
-			</p>
-			<div class="flex items-center gap-4 justify-center md:justify-start">
-				{#each socialLinks as social}
-					<a
-						href={social.href}
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label={social.label}
-						class="text-gray-600 hover:text-white transition-colors"
-					>
-						<svg
-							viewBox="0 0 24 24"
-							class="w-4 h-4"
-							fill="currentColor"
-							aria-hidden="true"
+<footer class="bg-gray-950 text-gray-400 py-12">
+	<div class="container mx-auto px-4 max-w-6xl">
+		<div class="grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,2.7fr)]">
+			<div class="text-center lg:text-left">
+				<BrandLogo
+					variant="light"
+					sizeClass="mx-auto lg:mx-0 mb-4 w-[180px] sm:w-[200px]"
+					alt="GeoLocally"
+				/>
+				<p class="text-sm max-w-md mb-6">
+					Focused landing pages and short explainer videos for local businesses that need to look
+					clearer online.
+				</p>
+				<a
+					href="mailto:hello@geolocally.com"
+					class="inline-flex items-center gap-1.5 text-sm hover:text-white transition-colors mb-4"
+				>
+					<Mail class="w-4 h-4" />
+					hello@geolocally.com
+				</a>
+				<div class="flex items-center gap-4 justify-center lg:justify-start mt-2">
+					{#each socialLinks as social}
+						<a
+							href={social.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={social.label}
+							class="text-gray-600 hover:text-white transition-colors"
 						>
-							<path d={social.path} />
-						</svg>
-					</a>
+							<svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true">
+								<path d={social.path} />
+							</svg>
+						</a>
+					{/each}
+				</div>
+			</div>
+
+			<div class="grid gap-8 grid-cols-2 sm:grid-cols-3 text-sm">
+				<div>
+					<p class="text-white font-semibold mb-3">Company</p>
+					<div class="flex flex-col gap-2">
+						{#each companyLinks as link (link.href)}
+							<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
+						{/each}
+					</div>
+				</div>
+
+				<div>
+					<p class="text-white font-semibold mb-3">Cities</p>
+					<div class="flex flex-col gap-2">
+						{#each cityLinks as link (link.href)}
+							<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
+						{/each}
+					</div>
+				</div>
+
+				<div>
+					<p class="text-white font-semibold mb-3">For You</p>
+					<div class="flex flex-col gap-2">
+						{#each verticalLinks as link (link.href)}
+							<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600"
+		>
+			<div class="flex items-center gap-4 flex-wrap justify-center">
+				<span>&copy; 2026 GeoLocally. All rights reserved.</span>
+				{#each legalLinks as link (link.href)}
+					<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
 				{/each}
 			</div>
+			<span>We reply to every inquiry within 1 business day.</span>
 		</div>
-
-		<div class="grid gap-8 sm:grid-cols-3 text-sm">
-			<div>
-				<p class="text-white font-semibold mb-3">Explore</p>
-				<div class="flex flex-col gap-2">
-					{#each exploreLinks as link (link.href)}
-						<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
-					{/each}
-				</div>
-			</div>
-
-			<div>
-				<p class="text-white font-semibold mb-3">Markets</p>
-				<div class="flex flex-col gap-2">
-					{#each marketLinks as link (link.href)}
-						<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
-					{/each}
-				</div>
-			</div>
-
-			<div>
-				<p class="text-white font-semibold mb-3">Contact</p>
-				<div class="flex flex-col gap-2">
-					<a
-						href="mailto:hello@geolocally.com"
-						class="flex items-center gap-1.5 hover:text-white transition-colors"
-					>
-						<Mail class="w-3.5 h-3.5" />
-						hello@geolocally.com
-					</a>
-					{#each legalLinks as link (link.href)}
-						<a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
-					{/each}
-				</div>
-			</div>
-		</div>
-	</div>
-	<div
-		class="container mx-auto px-4 max-w-6xl mt-8 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600"
-	>
-		<span>&copy; 2026 GeoLocally. All rights reserved.</span>
-		<span>We reply to every inquiry within 1 business day.</span>
 	</div>
 </footer>

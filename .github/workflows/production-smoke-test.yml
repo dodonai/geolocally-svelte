@@ -1,0 +1,88 @@
+name: Production Smoke Test
+
+on:
+  # Run after every successful deploy to GitHub Pages
+  workflow_run:
+    workflows: ['Deploy to GitHub Pages']
+    types: [completed]
+  # And once a day at 12:00 UTC as a regression safety net
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name != 'workflow_run' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout (for sitemap reference)
+        uses: actions/checkout@v4
+
+      - name: Wait for CDN cache
+        run: sleep 30
+
+      - name: Check every sitemap URL returns 200
+        run: |
+          set -e
+          FAILED=0
+          PASSED=0
+          for url in $(grep -oE 'https://geolocally\.com/[^<]*' static/sitemap.xml); do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -L "$url")
+            if [ "$code" = "200" ]; then
+              PASSED=$((PASSED+1))
+            else
+              FAILED=$((FAILED+1))
+              echo "❌ $code  $url"
+            fi
+          done
+          echo ""
+          echo "✓ $PASSED passed | ✗ $FAILED failed"
+          if [ "$FAILED" -gt 0 ]; then exit 1; fi
+
+      - name: Critical-asset checks
+        run: |
+          set -e
+          fail() { echo "❌ $1"; exit 1; }
+          pass() { echo "✓ $1"; }
+
+          # Favicon SVG
+          curl -fsSL https://geolocally.com/favicon.svg > /dev/null && pass "favicon.svg loads" || fail "favicon.svg missing"
+          # Apple touch icon
+          curl -fsSL https://geolocally.com/apple-touch-icon.png > /dev/null && pass "apple-touch-icon loads" || fail "apple-touch-icon missing"
+          # Web manifest
+          curl -fsSL https://geolocally.com/site.webmanifest > /dev/null && pass "manifest loads" || fail "manifest missing"
+          # Sitemap accessible + parseable
+          curl -fsSL https://geolocally.com/sitemap.xml | grep -q '<urlset' && pass "sitemap.xml valid" || fail "sitemap.xml broken"
+          # Robots.txt
+          curl -fsSL https://geolocally.com/robots.txt | grep -q Sitemap && pass "robots.txt valid" || fail "robots.txt broken"
+
+      - name: AEO / SEO foundation checks
+        run: |
+          set -e
+          fail() { echo "❌ $1"; exit 1; }
+          pass() { echo "✓ $1"; }
+
+          # FAQ JSON-LD schema present
+          curl -fsSL https://geolocally.com/faq | grep -q '"@type":"FAQPage"' && pass "FAQPage schema present" || fail "FAQPage schema missing on /faq"
+          # Ahrefs analytics script present
+          curl -fsSL https://geolocally.com/ | grep -q "analytics.ahrefs.com" && pass "Ahrefs analytics script present" || fail "Ahrefs script missing"
+          # GA4 measurement ID present
+          curl -fsSL https://geolocally.com/ | grep -q "G-SNE1W554P0" && pass "GA4 ID present" || fail "GA4 ID missing"
+          # Theme color meta
+          curl -fsSL https://geolocally.com/ | grep -q 'name="theme-color"' && pass "theme-color set" || fail "theme-color missing"
+
+      - name: Nav link reachability (spot-check)
+        run: |
+          set -e
+          fail() { echo "❌ $1"; exit 1; }
+          # Spot-check that the homepage actually contains links to the new pages
+          html=$(curl -fsSL https://geolocally.com/)
+          for path in /pricing /faq /about /contact /orlando /jacksonville /for/plumbers /for/dentists; do
+            if echo "$html" | grep -q "href=\"$path\""; then
+              echo "✓ homepage links to $path"
+            else
+              fail "homepage missing link to $path"
+            fi
+          done
