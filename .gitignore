@@ -8,3 +8,6 @@ vite.config.js.timestamp-*
 .gstack/
 .DS_Store
 docs/
+
+# Local WIP mockup, never ship to prod
+src/routes/mockup/
