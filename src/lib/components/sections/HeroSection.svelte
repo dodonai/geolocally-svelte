@@ -1,7 +1,6 @@
 <script>
 	const trustItems = [
 		'One clear offer + service area',
-		'$499 starting price',
 		'Reply within 1 business day',
 		'You own the video and content'
 	];
@@ -15,6 +14,8 @@
 			src="/hero-cinematic.jpg"
 			alt=""
 			aria-hidden="true"
+			width="1920"
+			height="1080"
 			class="w-full h-full object-cover object-[55%_18%] md:object-[65%_center]"
 			loading="eager"
 			fetchpriority="high"
@@ -41,7 +42,7 @@
 			<div class="flex items-center gap-3 mb-5 md:mb-5">
 				<div class="h-px bg-indigo-500 w-8 flex-shrink-0"></div>
 				<span class="text-indigo-400 text-xs font-bold tracking-[0.22em] uppercase">
-					Now accepting local businesses nationwide
+					Built for Florida service businesses · $499 · live in 3–5 days
 				</span>
 			</div>
 
@@ -77,8 +78,11 @@
 				</a>
 			</div>
 
-			<!-- Trust strip -->
-			<div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-400">
+			<!-- Trust strip — $499 leads, others support -->
+			<div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-400 items-center">
+				<span class="flex items-center gap-2 bg-indigo-600/15 border border-indigo-500/40 rounded-md px-2.5 py-1 text-white font-bold">
+					$499 one-time
+				</span>
 				{#each trustItems as item (item)}
 					<span class="flex items-center gap-2">
 						<span class="text-indigo-500 font-bold leading-none">—</span>

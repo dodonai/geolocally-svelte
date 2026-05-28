@@ -20,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>FAQ | GeoLocally — Common Questions About Local Storefront Pages</title>
+	<title>GeoLocally FAQ — Pricing, Scope, Timeline</title>
 	<meta
 		name="description"
 		content="Answers to common questions about GeoLocally — pricing, what's included, who it's for, how it differs from a website redesign, and what AEO means for local businesses."

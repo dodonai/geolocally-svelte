@@ -1,7 +1,7 @@
 export const geoPages = {
   florida: {
     slug: "florida",
-    title: "GeoLocally Florida | Clearer Landing Pages for Local Service Businesses",
+    title: "GeoLocally Florida — Storefronts for Local Businesses",
     description:
       "GeoLocally builds focused Florida landing pages and short explainer videos for local service businesses that need to look clearer online. Starting at $499.",
     locationLabel: "Florida local businesses",
@@ -122,7 +122,7 @@ export const geoPages = {
   },
   miami: {
     slug: "miami",
-    title: "GeoLocally Miami | Clearer Landing Pages for Miami Businesses",
+    title: "GeoLocally Miami — Storefronts for Local Businesses",
     description:
       "GeoLocally builds focused Miami landing pages and short explainer videos for local businesses that need clearer positioning and stronger first impressions online. Starting at $499.",
     locationLabel: "Miami local businesses",
@@ -239,7 +239,7 @@ export const geoPages = {
   },
   tampa: {
     slug: "tampa",
-    title: "GeoLocally Tampa | Clearer Landing Pages for Tampa Service Businesses",
+    title: "GeoLocally Tampa — Storefronts for Local Businesses",
     description:
       "GeoLocally builds focused Tampa landing pages and short explainer videos for local service businesses that need clearer positioning and stronger first impressions online. Starting at $499.",
     locationLabel: "Tampa local businesses",
@@ -361,7 +361,7 @@ export const geoPages = {
   },
   orlando: {
     slug: "orlando",
-    title: "GeoLocally Orlando | Clearer Landing Pages for Orlando Local Businesses",
+    title: "GeoLocally Orlando — Storefronts for Local Businesses",
     description:
       "GeoLocally builds focused Orlando landing pages and short explainer videos for local service businesses. Clearer positioning, faster decisions, $499.",
     locationLabel: "Orlando local businesses",
@@ -429,7 +429,7 @@ export const geoPages = {
   },
   jacksonville: {
     slug: "jacksonville",
-    title: "GeoLocally Jacksonville | Clearer Landing Pages for Jacksonville Businesses",
+    title: "GeoLocally Jacksonville — Storefronts for Local Biz",
     description:
       "GeoLocally builds focused Jacksonville landing pages and short explainer videos for local service businesses across Northeast Florida. Starting at $499.",
     locationLabel: "Jacksonville local businesses",
@@ -488,7 +488,7 @@ export const geoPages = {
   },
   "fort-lauderdale": {
     slug: "fort-lauderdale",
-    title: "GeoLocally Fort Lauderdale | Clearer Landing Pages for Local Businesses",
+    title: "GeoLocally Fort Lauderdale — Local Storefront Pages",
     description:
       "GeoLocally builds focused Fort Lauderdale landing pages and short explainer videos for local businesses in Broward County. Starting at $499.",
     locationLabel: "Fort Lauderdale local businesses",
@@ -547,7 +547,7 @@ export const geoPages = {
   },
   "st-petersburg": {
     slug: "st-petersburg",
-    title: "GeoLocally St. Petersburg | Clearer Landing Pages for St. Pete Businesses",
+    title: "GeoLocally St. Petersburg — Local Storefront Pages",
     description:
       "GeoLocally builds focused St. Petersburg landing pages and short explainer videos for local service businesses across Pinellas County. Starting at $499.",
     locationLabel: "St. Petersburg local businesses",
@@ -606,7 +606,7 @@ export const geoPages = {
   },
   "west-palm-beach": {
     slug: "west-palm-beach",
-    title: "GeoLocally West Palm Beach | Clearer Landing Pages for WPB Businesses",
+    title: "GeoLocally West Palm Beach — Local Storefront Pages",
     description:
       "GeoLocally builds focused West Palm Beach landing pages and short explainer videos for local businesses across Palm Beach County. Starting at $499.",
     locationLabel: "West Palm Beach local businesses",
@@ -665,7 +665,7 @@ export const geoPages = {
   },
   "cape-coral": {
     slug: "cape-coral",
-    title: "GeoLocally Cape Coral | Clearer Landing Pages for Cape Coral Businesses",
+    title: "GeoLocally Cape Coral — Local Storefront Pages",
     description:
       "GeoLocally builds focused Cape Coral landing pages and short explainer videos for local service businesses across Southwest Florida. Starting at $499.",
     locationLabel: "Cape Coral local businesses",
@@ -724,7 +724,7 @@ export const geoPages = {
   },
   tallahassee: {
     slug: "tallahassee",
-    title: "GeoLocally Tallahassee | Clearer Landing Pages for Tallahassee Businesses",
+    title: "GeoLocally Tallahassee — Local Storefront Pages",
     description:
       "GeoLocally builds focused Tallahassee landing pages and short explainer videos for local service businesses serving North Florida. Starting at $499.",
     locationLabel: "Tallahassee local businesses",

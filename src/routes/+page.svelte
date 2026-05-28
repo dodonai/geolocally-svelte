@@ -15,55 +15,36 @@
 </script>
 
 <svelte:head>
-	<title>GeoLocally | Landing Pages and Explainer Videos for Local Businesses</title>
+	<title>GeoLocally — Landing Pages for Local Service Businesses</title>
 	<meta
 		name="description"
-		content="GeoLocally builds focused landing pages and short explainer videos for local service businesses that need to be understood faster online."
+		content="Focused landing pages and short explainer videos for local service businesses in Florida. Live in 3–5 days. Starting at $499."
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://geolocally.com" />
-	<meta property="og:title" content="GeoLocally | Landing Pages and Explainer Videos for Local Businesses" />
-	<meta property="og:description" content="GeoLocally builds focused landing pages and short explainer videos for local service businesses that need to be understood faster online." />
+	<meta property="og:title" content="GeoLocally — Landing Pages for Local Service Businesses" />
+	<meta property="og:description" content="Focused landing pages and short explainer videos for local service businesses in Florida. Live in 3–5 days. Starting at $499." />
 	<meta property="og:image" content="https://geolocally.com/og-image.png" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="GeoLocally | Landing Pages and Explainer Videos for Local Businesses" />
-	<meta name="twitter:description" content="GeoLocally builds focused landing pages and short explainer videos for local service businesses that need to be understood faster online." />
+	<meta name="twitter:title" content="GeoLocally — Landing Pages for Local Service Businesses" />
+	<meta name="twitter:description" content="Focused landing pages and short explainer videos for local service businesses in Florida. Live in 3–5 days. Starting at $499." />
 	<meta name="twitter:image" content="https://geolocally.com/og-image.png" />
 	<link rel="canonical" href="https://geolocally.com" />
 	{@html `<script type="application/ld+json">${JSON.stringify({
 		"@context": "https://schema.org",
-		"@graph": [
-			{
-				"@type": "Organization",
-				"name": "GeoLocally",
-				"url": "https://geolocally.com",
-				"logo": "https://geolocally.com/logo-dark.svg",
-				"email": "hello@geolocally.com",
-				"description": "GeoLocally builds focused landing pages and short explainer videos for local service businesses that need to be understood faster online.",
-				"sameAs": []
-			},
-			{
-				"@type": "Service",
-				"name": "GeoLocally Digital Storefront",
-				"url": "https://geolocally.com",
-				"serviceType": "Focused landing pages and explainer videos for local service businesses",
-				"areaServed": {
-					"@type": "Country",
-					"name": "United States"
-				},
-				"description": "Focused landing pages and short explainer videos for local service businesses that need to be understood faster online.",
-				"offers": {
-					"@type": "Offer",
-					"price": "499",
-					"priceCurrency": "USD",
-					"description": "Digital Storefront starting at $499"
-				},
-				"provider": {
-					"@type": "Organization",
-					"name": "GeoLocally"
-				}
-			}
-		]
+		"@type": "Service",
+		"name": "GeoLocally Digital Storefront",
+		"url": "https://geolocally.com",
+		"serviceType": "Landing page and explainer video design for local service businesses",
+		"areaServed": { "@type": "State", "name": "Florida" },
+		"description": "Focused landing pages and short explainer videos for local service businesses in Florida.",
+		"offers": {
+			"@type": "Offer",
+			"price": "499",
+			"priceCurrency": "USD",
+			"description": "One-time, starting at $499. Live in 3–5 days."
+		},
+		"provider": { "@type": "Organization", "name": "GeoLocally" }
 	})}</script>`}
 </svelte:head>
 
