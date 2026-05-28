@@ -1,17 +1,17 @@
 [
   {
-    "quote": "Home services usually need a page that says the offer, service area, and next step fast. Less clicking. Less confusion.",
+    "quote": "Need a page that loads fast, says the offer up top, lists the service area, and makes the call button impossible to miss.",
     "name": "Home services",
-    "business": "Representative scenario"
+    "business": "Plumbing · HVAC · Roofing"
   },
   {
-    "quote": "Dental and health practices benefit when the page makes the service, credibility, and booking path easy to understand on mobile.",
-    "name": "Dental and health practices",
-    "business": "Representative scenario"
+    "quote": "Need the page to answer 'do you take my insurance' and 'can I book this week' before the visitor finishes scrolling.",
+    "name": "Health practices",
+    "business": "Dental · Chiropractic · Med spa"
   },
   {
-    "quote": "Retail and boutique brands can use a storefront as a cleaner landing page for search, social, and first-time visitors.",
-    "name": "Retail and boutique brands",
-    "business": "Representative scenario"
+    "quote": "Need a clean digital storefront for search, social, and first-time visitors — not a 12-page brochure they have to dig through.",
+    "name": "Retail & boutique",
+    "business": "Shops · Studios · Boutiques"
   }
 ]

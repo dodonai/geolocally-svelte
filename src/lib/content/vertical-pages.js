@@ -1,7 +1,7 @@
 export const verticalPages = {
   plumbers: {
     slug: "for/plumbers",
-    title: "GeoLocally for Plumbers | Landing Pages That Get Phones Ringing",
+    title: "Plumber Landing Pages That Ring the Phone — GeoLocally",
     description:
       "GeoLocally builds focused landing pages and explainer videos for plumbers. Clearer service description, faster trust, more calls. Starting at $499.",
     locationLabel: "plumbing businesses",
@@ -70,7 +70,7 @@ export const verticalPages = {
   },
   dentists: {
     slug: "for/dentists",
-    title: "GeoLocally for Dentists | Landing Pages That Convert New Patients",
+    title: "Dentist Landing Pages That Convert Patients — GeoLocally",
     description:
       "GeoLocally builds focused landing pages and explainer videos for dental practices. Clearer specialty, faster trust, more new-patient calls. Starting at $499.",
     locationLabel: "dental practices",
@@ -132,7 +132,7 @@ export const verticalPages = {
   },
   lawyers: {
     slug: "for/lawyers",
-    title: "GeoLocally for Lawyers | Landing Pages That Convert Consultations",
+    title: "Law Firm Landing Pages That Book Consults — GeoLocally",
     description:
       "GeoLocally builds focused landing pages and explainer videos for law firms. Clearer practice area, faster trust, more qualified consultations. Starting at $499.",
     locationLabel: "law firms",
@@ -192,7 +192,7 @@ export const verticalPages = {
   },
   "real-estate-agents": {
     slug: "for/real-estate-agents",
-    title: "GeoLocally for Real Estate Agents | Landing Pages That Win the Niche",
+    title: "Real Estate Agent Landing Pages — GeoLocally",
     description:
       "GeoLocally builds focused landing pages and explainer videos for real estate agents. Win the niche, win the search, win the lead. Starting at $499.",
     locationLabel: "real estate agents",
@@ -246,7 +246,7 @@ export const verticalPages = {
   },
   "insurance-agents": {
     slug: "for/insurance-agents",
-    title: "GeoLocally for Insurance Agents | Landing Pages That Convert Quotes",
+    title: "Insurance Agent Landing Pages — GeoLocally",
     description:
       "GeoLocally builds focused landing pages and explainer videos for insurance agents. Clearer line of business, faster trust, more quote requests. Starting at $499.",
     locationLabel: "insurance agencies",
@@ -300,7 +300,7 @@ export const verticalPages = {
   },
   "salons-and-medspas": {
     slug: "for/salons-and-medspas",
-    title: "GeoLocally for Salons and Med Spas | Landing Pages That Book Appointments",
+    title: "Salon & Med Spa Landing Pages — GeoLocally",
     description:
       "GeoLocally builds focused landing pages and explainer videos for salons, med spas, and beauty businesses. Clearer service, faster booking. Starting at $499.",
     locationLabel: "salons and med spas",
@@ -354,7 +354,7 @@ export const verticalPages = {
   },
   "auto-repair": {
     slug: "for/auto-repair",
-    title: "GeoLocally for Auto Repair | Landing Pages That Convert Service Calls",
+    title: "Auto Repair Landing Pages — GeoLocally",
     description:
       "GeoLocally builds focused landing pages and explainer videos for auto repair shops. Clearer specialty, faster trust, more service calls. Starting at $499.",
     locationLabel: "auto repair shops",
@@ -408,7 +408,7 @@ export const verticalPages = {
   },
   accountants: {
     slug: "for/accountants",
-    title: "GeoLocally for Accountants | Landing Pages That Convert Tax & Bookkeeping Clients",
+    title: "Accountant Landing Pages — GeoLocally",
     description:
       "GeoLocally builds focused landing pages and explainer videos for CPAs, tax pros, and bookkeepers. Clearer specialty, faster trust, more client inquiries. Starting at $499.",
     locationLabel: "accounting practices",

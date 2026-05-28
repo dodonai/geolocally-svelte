@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>About GeoLocally — Clearer Pages for Local Service Businesses</title>
+	<title>About GeoLocally — Florida Storefront Builds</title>
 	<meta
 		name="description"
 		content="GeoLocally builds focused landing pages and explainer videos for local service businesses. Operated by Third Team Ventures LLC. Built for the AI-search era."

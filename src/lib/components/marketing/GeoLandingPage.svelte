@@ -8,6 +8,57 @@
 		return `https://geolocally.com/${page.slug}`;
 	}
 
+	function isVerticalPage() {
+		return page.slug.startsWith('for/');
+	}
+
+	function getBreadcrumbList() {
+		const items = [
+			{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://geolocally.com' }
+		];
+		if (isVerticalPage()) {
+			items.push({
+				'@type': 'ListItem',
+				position: 2,
+				name: page.locationLabel.charAt(0).toUpperCase() + page.locationLabel.slice(1),
+				item: getUrl()
+			});
+		} else {
+			// City page
+			items.push({
+				'@type': 'ListItem',
+				position: 2,
+				name: page.locationLabel,
+				item: getUrl()
+			});
+		}
+		return { '@type': 'BreadcrumbList', itemListElement: items };
+	}
+
+	function getServiceSchema() {
+		// Service schema on every page — anchored to the specific service
+		// (vertical-specific or city-specific) so AI engines + Google understand intent.
+		return {
+			'@type': 'Service',
+			name: page.heroTitle,
+			serviceType: isVerticalPage()
+				? `Landing page design for ${page.locationLabel}`
+				: `Landing page design for ${page.locationLabel}`,
+			provider: { '@type': 'Organization', name: 'GeoLocally' },
+			areaServed: isVerticalPage()
+				? { '@type': 'State', name: 'Florida' }
+				: { '@type': 'Place', name: page.locationLabel },
+			description: page.description,
+			offers: {
+				'@type': 'Offer',
+				price: '499',
+				priceCurrency: 'USD',
+				description: 'One-time, starting at $499. Live in 3–5 days.'
+			},
+			url: getUrl()
+		};
+	}
+
 	function getSchema() {
 		return {
 			'@context': 'https://schema.org',
@@ -18,6 +69,8 @@
 					description: page.description,
 					url: getUrl()
 				},
+				getBreadcrumbList(),
+				getServiceSchema(),
 				{
 					'@type': 'FAQPage',
 					mainEntity: page.faqs.map((faq) => ({
