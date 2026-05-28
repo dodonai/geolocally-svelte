@@ -3,21 +3,7 @@
 	import BrandLogo from '$lib/components/layout/BrandLogo.svelte';
 
 	let mobileOpen = $state(false);
-	let citiesOpen = $state(false);
 	let verticalsOpen = $state(false);
-
-	const cities = [
-		{ label: 'Florida (statewide)', href: '/florida' },
-		{ label: 'Miami', href: '/miami' },
-		{ label: 'Tampa', href: '/tampa' },
-		{ label: 'Orlando', href: '/orlando' },
-		{ label: 'Jacksonville', href: '/jacksonville' },
-		{ label: 'Fort Lauderdale', href: '/fort-lauderdale' },
-		{ label: 'St. Petersburg', href: '/st-petersburg' },
-		{ label: 'West Palm Beach', href: '/west-palm-beach' },
-		{ label: 'Cape Coral', href: '/cape-coral' },
-		{ label: 'Tallahassee', href: '/tallahassee' }
-	];
 
 	const verticals = [
 		{ label: 'Plumbers', href: '/for/plumbers' },
@@ -38,7 +24,6 @@
 
 	function closeMobile() {
 		mobileOpen = false;
-		citiesOpen = false;
 		verticalsOpen = false;
 	}
 </script>
@@ -48,31 +33,6 @@
 		<BrandLogo variant="light" sizeClass="w-[132px] sm:w-[148px] md:w-[168px]" />
 
 		<div class="hidden md:flex items-center gap-5 text-[13px] font-medium text-gray-400">
-			<!-- Cities dropdown -->
-			<div class="relative group">
-				<button
-					type="button"
-					class="flex items-center gap-1 hover:text-white transition-colors py-2"
-				>
-					Cities
-					<ChevronDown class="w-3.5 h-3.5" />
-				</button>
-				<div
-					class="absolute left-0 top-full mt-1 w-56 rounded-lg border border-slate-700 bg-black shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150"
-				>
-					<div class="flex flex-col py-2">
-						{#each cities as link (link.href)}
-							<a
-								href={link.href}
-								class="px-4 py-1.5 text-[13px] text-gray-400 hover:text-white hover:bg-slate-800 transition-colors"
-							>
-								{link.label}
-							</a>
-						{/each}
-					</div>
-				</div>
-			</div>
-
 			<!-- For You (verticals) dropdown -->
 			<div class="relative group">
 				<button
@@ -135,30 +95,6 @@
 	{#if mobileOpen}
 		<div class="md:hidden border-t border-slate-700 bg-black max-h-[calc(100vh-3rem)] overflow-y-auto">
 			<div class="container mx-auto px-4 py-3 flex flex-col gap-1">
-				<!-- Cities mobile collapsible -->
-				<button
-					type="button"
-					class="flex items-center justify-between py-2.5 px-3 text-sm font-medium text-gray-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
-					onclick={() => (citiesOpen = !citiesOpen)}
-					aria-expanded={citiesOpen}
-				>
-					<span>Cities</span>
-					<ChevronDown class={`w-4 h-4 transition-transform ${citiesOpen ? 'rotate-180' : ''}`} />
-				</button>
-				{#if citiesOpen}
-					<div class="ml-3 flex flex-col gap-1 mb-1">
-						{#each cities as link (link.href)}
-							<a
-								href={link.href}
-								class="block py-2 px-3 text-[13px] text-gray-500 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
-								onclick={closeMobile}
-							>
-								{link.label}
-							</a>
-						{/each}
-					</div>
-				{/if}
-
 				<!-- Verticals mobile collapsible -->
 				<button
 					type="button"
