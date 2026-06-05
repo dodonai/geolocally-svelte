@@ -5,24 +5,24 @@
 </script>
 
 <svelte:head>
-	<title>GeoLocally Blog | Clearer Websites, Better Local Search</title>
+	<title>How Local Businesses Show Up in AI Search | GeoLocally Blog</title>
 	<meta
 		name="description"
-		content="Practical guidance for local businesses that want clearer websites, better local search visibility, and stronger first impressions online."
+		content="Plain-English guides for local businesses that want to be found by ChatGPT, Perplexity, and Google AI — not just buried in blue links."
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://geolocally.com/blog" />
-	<meta property="og:title" content="GeoLocally Blog | Clearer Websites, Better Local Search" />
+	<meta property="og:title" content="How Local Businesses Show Up in AI Search | GeoLocally Blog" />
 	<meta
 		property="og:description"
-		content="Practical guidance for local businesses that want clearer websites, better local search visibility, and stronger first impressions online."
+		content="Plain-English guides for local businesses that want to be found by ChatGPT, Perplexity, and Google AI — not just buried in blue links."
 	/>
 	<meta property="og:image" content="https://geolocally.com/og-image.png" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="GeoLocally Blog | Clearer Websites, Better Local Search" />
+	<meta name="twitter:title" content="How Local Businesses Show Up in AI Search | GeoLocally Blog" />
 	<meta
 		name="twitter:description"
-		content="Practical guidance for local businesses that want clearer websites, better local search visibility, and stronger first impressions online."
+		content="Plain-English guides for local businesses that want to be found by ChatGPT, Perplexity, and Google AI — not just buried in blue links."
 	/>
 	<meta name="twitter:image" content="https://geolocally.com/og-image.png" />
 	<link rel="canonical" href="https://geolocally.com/blog" />
@@ -33,11 +33,12 @@
 		<div class="max-w-4xl">
 			<SectionLabel>Insights</SectionLabel>
 			<h1 class="font-display text-4xl md:text-6xl font-black italic leading-tight text-balance mb-6">
-				Straight talk on local search, clearer websites, and getting chosen faster.
+				How local businesses show up in AI search.
 			</h1>
 			<p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
-				These articles break down what is changing in search, what local businesses should fix
-				first, and how to make your business easier to trust online.
+				ChatGPT, Perplexity, and Google AI are picking which local business gets the call. Here is
+				what is changing, what to fix first, and how to make your business easier for AI to
+				recommend.
 			</p>
 		</div>
 	</div>

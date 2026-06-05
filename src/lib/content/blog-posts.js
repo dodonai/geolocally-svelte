@@ -1,5 +1,18 @@
 export const blogPosts = [
   {
+    slug: "how-local-businesses-show-up-in-ai-search",
+    title: "How Local Businesses Show Up in AI Search",
+    description:
+      "ChatGPT, Perplexity, and Google AI now pick which local business gets the call. Here is how to be the one they recommend.",
+    published: "2026-06-05",
+    displayDate: "June 5, 2026",
+    readingTime: "5 min read",
+    category: "AI Search FAQ",
+    coverImage: "/blog-covers/how-local-businesses-show-up-in-ai-search.png",
+    coverAlt:
+      "GeoLocally blog cover for How Local Businesses Show Up in AI Search.",
+  },
+  {
     slug: "your-customers-arent-just-googling-anymore",
     title: "Your Customers Aren't Just Googling Anymore. They're Asking AI.",
     description:
