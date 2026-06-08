@@ -1,5 +1,18 @@
 export const blogPosts = [
   {
+    slug: "answer-engine-optimization-for-local-businesses",
+    title: "Answer Engine Optimization for Local Businesses: The Plain-English Guide",
+    description:
+      "Answer Engine Optimization, in plain language, with a practical playbook a plumber, dentist, or lawyer can act on this week. Not theory. Specifics.",
+    published: "2026-06-09",
+    displayDate: "June 9, 2026",
+    readingTime: "9 min read",
+    category: "AEO Pillar",
+    coverImage: "/blog-covers/answer-engine-optimization-for-local-businesses.png",
+    coverAlt:
+      "GeoLocally blog cover for Answer Engine Optimization for Local Businesses: The Plain-English Guide.",
+  },
+  {
     slug: "how-local-businesses-show-up-in-ai-search",
     title: "How Local Businesses Show Up in AI Search",
     description:
