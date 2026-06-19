@@ -1,0 +1,8 @@
+node_modules/
+out/
+public/short.mp3
+public/short.timing.json
+public/short.timing.raw.json
+.env
+.env.local
+*.log
