@@ -5,7 +5,7 @@
 	const post = blogPostBySlug['answer-engine-optimization-for-local-businesses'];
 </script>
 
-<BlogPostLayout {post}>
+<BlogPostLayout {post} canonicalOverride="https://geolocally.com/answer-engine-optimization">
 	<p>
 		Answer Engine Optimization, or AEO, is how a local business gets recommended when a customer
 		types a full question into ChatGPT, Perplexity, or Google's AI Overview.

@@ -1,10 +1,14 @@
 <script>
 	import LeadCapturePanel from '$lib/components/marketing/LeadCapturePanel.svelte';
 
-	let { post, children } = $props();
+	let { post, children, canonicalOverride } = $props();
 
 	function getUrl() {
 		return `https://geolocally.com/blog/${post.slug}`;
+	}
+
+	function getCanonical() {
+		return canonicalOverride ?? getUrl();
 	}
 
 	function getImageUrl() {
@@ -49,7 +53,7 @@
 	<meta name="twitter:title" content={post.title} />
 	<meta name="twitter:description" content={post.description} />
 	<meta name="twitter:image" content={getImageUrl()} />
-	<link rel="canonical" href={getUrl()} />
+	<link rel="canonical" href={getCanonical()} />
 	{@html `<script type="application/ld+json">${JSON.stringify(getSchema())}</script>`}
 </svelte:head>
 

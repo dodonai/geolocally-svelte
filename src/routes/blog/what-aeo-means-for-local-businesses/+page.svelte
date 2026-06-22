@@ -5,7 +5,7 @@
 	const post = blogPostBySlug['what-aeo-means-for-local-businesses'];
 </script>
 
-<BlogPostLayout {post}>
+<BlogPostLayout {post} canonicalOverride="https://geolocally.com/answer-engine-optimization">
 	<p>AEO stands for <strong>Answer Engine Optimization</strong>.</p>
 
 	<p>That sounds technical. The real idea is simple.</p>
