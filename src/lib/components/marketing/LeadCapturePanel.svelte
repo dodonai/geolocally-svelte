@@ -2,9 +2,9 @@
 	let {
 		title,
 		body,
-		buttonLabel = 'Request Your Storefront',
-		href = '/#get-started',
-		note = "We'll reply within 1 business day.",
+		buttonLabel = 'Request your free audit',
+		href = '/audit',
+		note = "Free for you. 3 business days. No commitment.",
 		eventLabel = 'lead_panel_cta'
 	} = $props();
 </script>
