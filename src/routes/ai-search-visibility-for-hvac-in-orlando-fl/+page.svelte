@@ -31,6 +31,17 @@
 			<p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
 				This page is for Orlando HVAC companies who want to be the one AI picks. Specific signals AI tools read. The 5-day fix.
 			</p>
+			<div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+				<a
+					href="/audit"
+					class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-bold text-gray-900 transition-colors hover:bg-gray-100"
+				>
+					Get your free AI search audit
+				</a>
+				<p class="text-sm text-gray-400">
+					Free. 3 business days. Then $499 if you want the build.
+				</p>
+			</div>
 		</div>
 	</div>
 </section>
@@ -94,8 +105,8 @@
 <section class="bg-gray-900 text-white py-16 md:py-20">
 	<div class="container mx-auto max-w-4xl px-4">
 		<LeadCapturePanel
-			title="Tell us about your Orlando HVAC company business."
-			body="We reply within 1 business day with a clear yes or no on whether your business is a fit. If yes, your AI-search storefront ships in 5 business days, starting at $499."
+			title="See if AI assistants name your Orlando HVAC business."
+			body="Free AI search audit — we open ChatGPT, Perplexity, Google AI Overview, Gemini, and Copilot, ask each one for the best HVAC in Orlando, and send you a 1-page report on where you stand. 3 business days, no charge, no commitment. If you want help fixing what we find, that's our $499 storefront. Optional."
 		/>
 	</div>
 </section>
