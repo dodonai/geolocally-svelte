@@ -1,0 +1,81 @@
+name: Weekly AEO blog draft
+
+on:
+  schedule:
+    - cron: "0 1 * * 1"  # Mon 01:00 UTC = 09:00 Asia/Manila
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Force a specific slug"
+        required: false
+        type: string
+      dry_run:
+        description: "Print prompt + draft to log, write nothing"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+
+      - name: Install Anthropic SDK
+        run: npm install --no-save @anthropic-ai/sdk
+
+      - name: Run drafter
+        id: draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FORCE_SLUG: ${{ inputs.slug }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: node scripts/weekly-blog/run.mjs
+
+      - name: Open PR
+        if: steps.draft.outputs.slug != '' && inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLUG: ${{ steps.draft.outputs.slug }}
+          TITLE: ${{ steps.draft.outputs.title }}
+          KW: ${{ steps.draft.outputs.primary_keyword }}
+          QA_STATUS: ${{ steps.draft.outputs.qa_status }}
+        run: |
+          set -e
+          BRANCH="weekly-blog/$SLUG"
+          git config user.name "geolocally-bot"
+          git config user.email "hello@geolocally.com"
+          git checkout -b "$BRANCH"
+          git add src/routes/blog/$SLUG src/lib/content/blog-posts.js
+          git commit -m "📝 Weekly AEO blog draft — $TITLE"
+          git push origin "$BRANCH"
+          {
+            echo "Auto-drafted AEO blog post."
+            echo ""
+            echo "**Slug**: \`$SLUG\`"
+            echo "**Primary keyword**: $KW"
+            echo ""
+            cat qa-report.md 2>/dev/null || echo "_No QA report produced._"
+            echo ""
+            echo "### Human review checklist"
+            echo "- [ ] Title + meta description read naturally"
+            echo "- [ ] Voice matches the pillar anchor (no banned words)"
+            echo "- [ ] Internal links land on real pages"
+            echo "- [ ] No invented stats / case studies"
+            echo "- [ ] Cover image rendered (run render-blog-cover.mjs locally)"
+            echo "- [ ] Reads well on mobile"
+          } > pr-body.md
+          DRAFT_FLAG=""
+          if [ "$QA_STATUS" != "pass" ]; then DRAFT_FLAG="--draft"; fi
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "📝 Weekly AEO blog draft — $TITLE" \
+            --body-file pr-body.md \
+            $DRAFT_FLAG
