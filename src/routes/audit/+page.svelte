@@ -6,11 +6,64 @@
 	// Deliverable: a 1-page report on whether the business is named by the major AI assistants
 	// for queries like "best [service] in [city]" — sent within 3 business days, no charge.
 
-	const subject = encodeURIComponent('Free AI search audit request');
-	const body = encodeURIComponent(
-		'Hey GeoLocally,\n\nI\'d like the free AI search audit. Here\'s my info:\n\nBusiness name:\nService (plumbing / dental / HVAC / law / etc.):\nCity:\nWebsite (if any):\nPhone:\n\nThanks.'
-	);
-	const mailto = `mailto:hello@geolocally.com?subject=${subject}&body=${body}`;
+	// Structured lead form → mailto fallback (works everywhere, no backend needed).
+	// When we plug in Formspree/Web3Forms, change FORM_ENDPOINT below and swap
+	// the handleSubmit to fetch() instead of window.location.
+	// The mailto: fallback keeps working forever — zero-dependency lead capture.
+	const FORM_ENDPOINT = ''; // TODO: set to Formspree/Web3Forms URL when configured
+
+	let businessName = $state('');
+	let service = $state('');
+	let city = $state('');
+	let website = $state('');
+	let phone = $state('');
+	let email = $state('');
+	let submitting = $state(false);
+	let submitted = $state(false);
+	let error = $state('');
+
+	function buildMailto() {
+		const subject = encodeURIComponent(`Free AI search audit request — ${businessName || '(business name)'}`);
+		const body = encodeURIComponent(
+			`Hey GeoLocally,\n\nI'd like the free AI search audit.\n\n` +
+			`Business name: ${businessName}\n` +
+			`Service: ${service}\n` +
+			`City: ${city}\n` +
+			`Website: ${website || '(none)'}\n` +
+			`Phone: ${phone}\n` +
+			`Reply to: ${email}\n\n` +
+			`Thanks.`
+		);
+		return `mailto:hello@geolocally.com?subject=${subject}&body=${body}`;
+	}
+
+	async function handleSubmit(e) {
+		e.preventDefault();
+		submitting = true;
+		error = '';
+		try {
+			if (FORM_ENDPOINT) {
+				const res = await fetch(FORM_ENDPOINT, {
+					method: 'POST',
+					headers: { 'content-type': 'application/json', accept: 'application/json' },
+					body: JSON.stringify({ businessName, service, city, website, phone, email, source: 'audit-page' })
+				});
+				if (!res.ok) throw new Error(`HTTP ${res.status}`);
+				submitted = true;
+			} else {
+				// Zero-backend fallback: open user's mail client with prefilled body.
+				window.location.href = buildMailto();
+				submitted = true;
+			}
+		} catch (err) {
+			error = 'Could not send. Please email hello@geolocally.com directly.';
+		} finally {
+			submitting = false;
+		}
+	}
+
+	// Legacy mailto for the two button locations that don't use the form
+	const quickMailto = 'mailto:hello@geolocally.com?subject=Free%20AI%20search%20audit%20request';
 </script>
 
 <svelte:head>
@@ -46,13 +99,13 @@
 			Takes us a few hours. Free for you. 3 business days from request to report.
 		</p>
 		<a
-			href={mailto}
+			href="#audit-form"
 			class="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-lg font-bold text-gray-900 transition-colors hover:bg-gray-100"
 		>
 			Request your free audit
 		</a>
 		<p class="mt-4 text-sm text-gray-500">
-			Email us at hello@geolocally.com — we'll reply within 1 business day.
+			30 seconds to fill in. We'll reply within 1 business day.
 		</p>
 	</div>
 </section>
@@ -161,25 +214,108 @@
 	</div>
 </section>
 
-<!-- BOTTOM CTA -->
-<section class="bg-gray-900 text-white py-16 md:py-20">
-	<div class="container mx-auto max-w-3xl px-4 text-center">
-		<h2 class="font-display text-3xl md:text-4xl font-black italic text-white mb-6">
+<!-- BOTTOM CTA — the actual audit request form -->
+<section id="audit-form" class="bg-gray-900 text-white py-16 md:py-20">
+	<div class="container mx-auto max-w-2xl px-4">
+		<h2 class="font-display text-3xl md:text-4xl font-black italic text-white mb-4 text-center">
 			Ready when you are.
 		</h2>
-		<p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-xl mx-auto">
-			One email gets the audit started. We reply within 1 business day with confirmation and any
-			follow-up questions.
+		<p class="text-base text-gray-300 leading-relaxed mb-10 max-w-xl mx-auto text-center">
+			Six quick fields. We reply within 1 business day. Report lands in 3 business days.
 		</p>
-		<a
-			href={mailto}
-			class="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-lg font-bold text-gray-900 transition-colors hover:bg-gray-100"
-		>
-			Request your free audit
-		</a>
-		<p class="mt-4 text-sm text-gray-500">
-			Or email <a href="mailto:hello@geolocally.com" class="underline">hello@geolocally.com</a>
-			directly.
-		</p>
+
+		{#if submitted}
+			<div class="rounded-xl bg-emerald-900/40 border border-emerald-600 p-6 text-center">
+				<p class="text-lg font-bold text-white mb-2">Thanks — we got it.</p>
+				<p class="text-gray-300">
+					You'll hear from us at <strong>{email || 'the email you provided'}</strong> within 1 business
+					day. If the report is going to take longer than 3 business days, we'll tell you why.
+				</p>
+			</div>
+		{:else}
+			<form onsubmit={handleSubmit} class="space-y-5">
+				<div>
+					<label for="business-name" class="block text-sm font-medium text-gray-200 mb-1">Business name</label>
+					<input
+						id="business-name"
+						type="text"
+						required
+						bind:value={businessName}
+						placeholder="e.g. Bay Area Plumbers"
+						class="w-full rounded-lg bg-gray-800 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+					/>
+				</div>
+				<div class="grid md:grid-cols-2 gap-5">
+					<div>
+						<label for="service" class="block text-sm font-medium text-gray-200 mb-1">Service</label>
+						<input
+							id="service"
+							type="text"
+							required
+							bind:value={service}
+							placeholder="Plumbing, dental, HVAC, law…"
+							class="w-full rounded-lg bg-gray-800 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+						/>
+					</div>
+					<div>
+						<label for="city" class="block text-sm font-medium text-gray-200 mb-1">City</label>
+						<input
+							id="city"
+							type="text"
+							required
+							bind:value={city}
+							placeholder="Tampa, Miami, Orlando…"
+							class="w-full rounded-lg bg-gray-800 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+						/>
+					</div>
+				</div>
+				<div>
+					<label for="website" class="block text-sm font-medium text-gray-200 mb-1">Website (if any)</label>
+					<input
+						id="website"
+						type="url"
+						bind:value={website}
+						placeholder="https://yourbusiness.com"
+						class="w-full rounded-lg bg-gray-800 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+					/>
+				</div>
+				<div class="grid md:grid-cols-2 gap-5">
+					<div>
+						<label for="phone" class="block text-sm font-medium text-gray-200 mb-1">Phone</label>
+						<input
+							id="phone"
+							type="tel"
+							bind:value={phone}
+							placeholder="(813) 555-1234"
+							class="w-full rounded-lg bg-gray-800 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+						/>
+					</div>
+					<div>
+						<label for="email" class="block text-sm font-medium text-gray-200 mb-1">Your email</label>
+						<input
+							id="email"
+							type="email"
+							required
+							bind:value={email}
+							placeholder="you@yourbusiness.com"
+							class="w-full rounded-lg bg-gray-800 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+						/>
+					</div>
+				</div>
+				<button
+					type="submit"
+					disabled={submitting}
+					class="w-full inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-lg font-bold text-gray-900 transition-colors hover:bg-gray-100 disabled:opacity-60 disabled:cursor-not-allowed"
+				>
+					{submitting ? 'Sending…' : 'Send my free audit request →'}
+				</button>
+				{#if error}
+					<p class="text-red-400 text-sm text-center">{error}</p>
+				{/if}
+				<p class="text-xs text-gray-500 text-center">
+					Or email <a href={quickMailto} class="underline">hello@geolocally.com</a> directly.
+				</p>
+			</form>
+		{/if}
 	</div>
 </section>
