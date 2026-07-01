@@ -17,7 +17,6 @@
 	<title>$99 Pilot — First 3 customers get case-study pricing | GeoLocally</title>
 	<meta name="description" content="Building the first 3 case studies. GeoLocally at $99 flat (was $499) in exchange for testimonial + before/after AI search screenshots. Florida local service businesses only." />
 	<link rel="canonical" href="https://geolocally.com/pilot" />
-	<meta name="robots" content="noindex, follow" />
 </svelte:head>
 
 <!-- HERO -->
