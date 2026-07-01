@@ -1,0 +1,10 @@
+{
+  "_comment": "Placeholder timing file — replace with real ElevenLabs/whisper output before rendering. The alignment fields below are the minimum shape captions.ts expects.",
+  "alignment": {
+    "characters": ["g", "e", "o", "l", "o", "c", "a", "l", "l", "y"],
+    "character_start_times_seconds": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+    "character_end_times_seconds": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  },
+  "outroCta": "Full breakdown →",
+  "outroUrl": "geolocally.com"
+}
