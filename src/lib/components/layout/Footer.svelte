@@ -4,6 +4,9 @@
 
 	const companyLinks = [
 		{ label: 'Pricing', href: '/pricing' },
+		{ label: '$99 Pilot', href: '/pilot' },
+		{ label: 'Free AI audit', href: '/audit' },
+		{ label: 'What is AEO?', href: '/answer-engine-optimization' },
 		{ label: 'FAQ', href: '/faq' },
 		{ label: 'About', href: '/about' },
 		{ label: 'Contact', href: '/contact' },
