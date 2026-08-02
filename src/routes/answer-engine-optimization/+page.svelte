@@ -299,8 +299,6 @@
 				More on the mechanics:
 				<a href="/blog/how-local-businesses-show-up-in-ai-search" class="font-semibold text-emerald-700 underline">how local businesses show up in AI search</a>
 				·
-				<a href="/blog/aeo-checklist-for-local-service-businesses" class="font-semibold text-emerald-700 underline">AEO checklist</a>
-				·
 				<a href="/blog/what-aeo-means-for-local-businesses" class="font-semibold text-emerald-700 underline">what AEO means for local businesses</a>
 				·
 				<a href="/faq" class="font-semibold text-emerald-700 underline">FAQ</a>.
