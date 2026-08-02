@@ -60,6 +60,63 @@
       })();
     </script>
 
+    <!-- Meta Pixel loads only after analytics consent (mirrors the GA4 gate above) -->
+    <script>
+      (function () {
+        var pixelId = "1057644323415329";
+        var pixelLoaded = false;
+
+        function loadPixel() {
+          if (pixelLoaded) return;
+          pixelLoaded = true;
+
+          !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+              n.callMethod
+                ? n.callMethod.apply(n, arguments)
+                : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+          })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+          );
+
+          window.fbq("init", pixelId);
+          window.fbq("track", "PageView");
+        }
+
+        function disablePixel() {
+          if (window.fbq) window.fbq("consent", "revoke");
+        }
+
+        try {
+          if (window.localStorage.getItem("cookie-consent") === "accepted") {
+            loadPixel();
+          }
+        } catch (error) {
+          /* no consent readable — stay off */
+        }
+
+        window.addEventListener("cookie-consent-updated", function (event) {
+          if (event.detail === "accepted") loadPixel();
+          if (event.detail === "declined") disablePixel();
+        });
+      })();
+    </script>
+
     <!-- Google Fonts (non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
