@@ -4,6 +4,8 @@
 		name="description"
 		content="GeoLocally's terms of service. Review the terms that apply when you use the website or submit a request."
 	/>
+	<link rel="canonical" href="https://geolocally.com/terms" />
+	<meta name="robots" content="noindex, follow" />
 </svelte:head>
 
 <section class="bg-[#030712] text-white py-16 md:py-24">

@@ -4,6 +4,8 @@
 		name="description"
 		content="GeoLocally's privacy policy. Learn what information we collect, how we use it, and how to contact us about your data."
 	/>
+	<link rel="canonical" href="https://geolocally.com/privacy" />
+	<meta name="robots" content="noindex, follow" />
 </svelte:head>
 
 <section class="bg-[#030712] text-white py-16 md:py-24">
