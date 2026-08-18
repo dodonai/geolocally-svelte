@@ -27,3 +27,46 @@
 		text-wrap: pretty;
 	}
 }
+
+/*
+ * prose-invert on dark sections — systemic fix.
+ *
+ * daisyUI's theme sets --fallback-bc (base-content) to a near-black value
+ * because our daisyUI theme uses a light base-100. Its typography styles win
+ * over Tailwind's `prose-invert`, so every page using bare
+ * `prose prose-invert` rendered near-black text on our dark backgrounds —
+ * measured at oklch(0.2 0 0) on rgb(3,7,18), roughly 1.2:1 contrast.
+ *
+ * Fixing it here rather than patching ~18 files means new pages that use
+ * prose-invert are correct by default instead of inheriting the bug.
+ */
+.prose-invert {
+	--tw-prose-body: theme('colors.gray.300');
+	--tw-prose-headings: #ffffff;
+	--tw-prose-lead: theme('colors.gray.300');
+	--tw-prose-links: theme('colors.indigo.400');
+	--tw-prose-bold: #ffffff;
+	--tw-prose-counters: theme('colors.gray.400');
+	--tw-prose-bullets: theme('colors.indigo.500');
+	--tw-prose-hr: theme('colors.slate.700');
+	--tw-prose-quotes: theme('colors.gray.200');
+	--tw-prose-quote-borders: theme('colors.indigo.500');
+	--tw-prose-captions: theme('colors.gray.400');
+	--tw-prose-code: #ffffff;
+	--tw-prose-pre-code: theme('colors.gray.200');
+	--tw-prose-pre-bg: theme('colors.slate.800');
+	--tw-prose-th-borders: theme('colors.slate.600');
+	--tw-prose-td-borders: theme('colors.slate.700');
+	color: var(--tw-prose-body);
+}
+
+/* daisyUI applies base-content to these directly; override explicitly. */
+.prose-invert :where(p, li, ul, ol, dd, dt, blockquote, figcaption, td, th):not(:where([class~='not-prose'] *)) {
+	color: var(--tw-prose-body);
+}
+.prose-invert :where(h1, h2, h3, h4, h5, h6, strong, b):not(:where([class~='not-prose'] *)) {
+	color: var(--tw-prose-headings);
+}
+.prose-invert :where(a):not(:where([class~='not-prose'] *)) {
+	color: var(--tw-prose-links);
+}
