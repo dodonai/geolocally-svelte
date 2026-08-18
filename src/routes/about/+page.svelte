@@ -62,8 +62,19 @@
 
 		<h2>Who runs GeoLocally</h2>
 		<p>
-			GeoLocally is operated by Third Team Ventures LLC. We're a small team based in the
-			Philippines serving local service businesses primarily in Florida. We talk to founders
+			GeoLocally is a joint venture between <strong>Nick Chapleau</strong>, founder of
+			<a href="https://www.dodon.ai" target="_blank" rel="noopener">Dodon.ai</a>, and
+			<strong>Fleire Castro</strong> of <strong>Third Team Ventures LLC</strong>, which operates
+			the business.
+		</p>
+		<p>
+			Nick builds AI document tools used by law firms. Fleire has spent fifteen years in digital
+			marketing across Asia and the US. GeoLocally came out of something we both kept noticing:
+			AI assistants had started answering "who should I hire near me" with a single name, and
+			almost no local business was ready for it.
+		</p>
+		<p>
+			We're a small team serving local service businesses primarily in Florida. You talk to us
 			directly — no account managers, no offshore disconnects, no surprise upsells.
 		</p>
 
