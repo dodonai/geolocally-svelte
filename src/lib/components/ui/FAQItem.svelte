@@ -14,7 +14,7 @@
 	>
 		<span class="pr-4">{question}</span>
 		<svg
-			class="h-4 w-4 text-gray-500 transition-transform duration-200 flex-shrink-0 {isOpen
+			class="h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0 {isOpen
 				? 'rotate-180'
 				: ''}"
 			fill="none"

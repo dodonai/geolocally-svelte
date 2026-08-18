@@ -104,7 +104,7 @@
 		>
 			Request your free audit
 		</a>
-		<p class="mt-4 text-sm text-gray-500">
+		<p class="mt-4 text-sm text-gray-400">
 			30 seconds to fill in. We'll reply within 1 business day.
 		</p>
 	</div>
@@ -312,7 +312,7 @@
 				{#if error}
 					<p class="text-red-400 text-sm text-center">{error}</p>
 				{/if}
-				<p class="text-xs text-gray-500 text-center">
+				<p class="text-xs text-gray-400 text-center">
 					Or email <a href={quickMailto} class="underline">hello@geolocally.com</a> directly.
 				</p>
 			</form>

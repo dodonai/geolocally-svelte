@@ -7,7 +7,7 @@
 		{#each stats as stat (stat.value)}
 			<div class="px-6 first:pl-0 last:pr-0 text-center md:text-left">
 				<p class="font-display text-2xl font-black italic text-indigo-400 leading-none mb-1.5">{stat.value}</p>
-				<p class="text-xs text-gray-500 leading-relaxed">{stat.label}</p>
+				<p class="text-xs text-gray-400 leading-relaxed">{stat.label}</p>
 			</div>
 		{/each}
 	</div>

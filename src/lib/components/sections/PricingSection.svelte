@@ -21,10 +21,10 @@
 			<div class="border border-slate-700 rounded-lg bg-slate-900">
 				<div class="p-7 flex flex-col h-full">
 					<h3 class="font-bold text-white text-xl mb-1">Digital Storefront</h3>
-					<p class="text-gray-500 text-sm mb-5">Focused landing page + explainer video</p>
+					<p class="text-gray-400 text-sm mb-5">Focused landing page + explainer video</p>
 
 					<p class="font-display font-black text-white leading-none" style="font-size: 3.5rem;">$499</p>
-					<p class="text-sm text-gray-500 mt-1 mb-4">starting point</p>
+					<p class="text-sm text-gray-400 mt-1 mb-4">starting point</p>
 
 					<hr class="border-slate-700 mb-4" />
 
@@ -59,13 +59,13 @@
 				</div>
 				<div class="p-7 pt-8 flex flex-col h-full">
 					<h3 class="font-bold text-white text-xl mb-1">Growth</h3>
-					<p class="text-gray-500 text-sm mb-5">Keep the storefront active after launch</p>
+					<p class="text-gray-400 text-sm mb-5">Keep the storefront active after launch</p>
 
 					<p class="font-display font-black text-indigo-400 leading-none" style="font-size: 3.5rem;">From $149</p>
-					<p class="text-sm text-gray-500 mt-1 mb-1">monthly support</p>
-					<p class="text-xs text-gray-600 mb-4">priced around scope</p>
+					<p class="text-sm text-gray-400 mt-1 mb-1">monthly support</p>
+					<p class="text-xs text-gray-400 mb-4">priced around scope</p>
 
-					<p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
+					<p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
 						Everything in Digital Storefront, plus:
 					</p>
 					<ul class="flex flex-col gap-2.5 mb-8 flex-1">
@@ -132,7 +132,7 @@
 		</div>
 
 		<!-- Agency comparison -->
-		<p class="text-center text-xs text-gray-600 mb-6">
+		<p class="text-center text-xs text-gray-400 mb-6">
 			For comparison: Yelp ads can cost $10,000+/year. Many SEO retainers start at $500-$1,500/mo.
 			Video production often costs $5,000+. GeoLocally starts at $499.
 		</p>

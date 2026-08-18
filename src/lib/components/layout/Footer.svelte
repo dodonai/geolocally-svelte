@@ -93,7 +93,7 @@
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label={social.label}
-							class="text-gray-600 hover:text-white transition-colors"
+							class="text-gray-400 hover:text-white transition-colors"
 						>
 							<svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true">
 								<path d={social.path} />
@@ -134,7 +134,7 @@
 		</div>
 
 		<div
-			class="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600"
+			class="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400"
 		>
 			<div class="flex items-center gap-4 flex-wrap justify-center">
 				<span>&copy; 2026 GeoLocally. All rights reserved.</span>
