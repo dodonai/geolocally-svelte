@@ -110,7 +110,7 @@
 						{#each verticals as link (link.href)}
 							<a
 								href={link.href}
-								class="block py-2 px-3 text-[13px] text-gray-500 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+								class="block py-2 px-3 text-[13px] text-gray-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
 								onclick={closeMobile}
 							>
 								{link.label}

@@ -31,7 +31,7 @@
 		<div class="grid md:grid-cols-2 gap-6 mb-10">
 			<!-- Old way -->
 			<div class="bg-slate-900 border border-slate-700 rounded-lg p-7">
-				<p class="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-5">
+				<p class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-5">
 					How search used to work
 				</p>
 				<div class="flex flex-col gap-3">
@@ -46,7 +46,7 @@
 						</div>
 					{/each}
 				</div>
-				<p class="mt-5 text-xs text-gray-600 border-t border-slate-700 pt-4">
+				<p class="mt-5 text-xs text-gray-400 border-t border-slate-700 pt-4">
 					Local SEO still matters here
 				</p>
 			</div>
@@ -83,7 +83,7 @@
 		</div>
 
 		<div>
-			<p class="text-center text-xs font-bold uppercase tracking-[0.22em] text-gray-600 mb-4">
+			<p class="text-center text-xs font-bold uppercase tracking-[0.22em] text-gray-400 mb-4">
 				Watch how the search experience is changing
 			</p>
 			<div class="bg-slate-900 border border-slate-700 rounded-lg overflow-hidden">

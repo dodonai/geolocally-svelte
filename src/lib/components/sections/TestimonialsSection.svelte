@@ -20,7 +20,7 @@
 				<div class="bg-[#030712] border border-slate-700 rounded-lg">
 					<div class="p-6 flex flex-col h-full">
 						<p class="font-bold text-indigo-400 text-xs uppercase tracking-wider mb-1.5">{t.name}</p>
-						<p class="text-gray-600 text-xs mb-5">{t.business}</p>
+						<p class="text-gray-400 text-xs mb-5">{t.business}</p>
 						<p class="text-gray-200 text-sm leading-relaxed flex-1">{t.quote}</p>
 					</div>
 				</div>

@@ -44,7 +44,7 @@
 		</div>
 
 		<div class="bg-slate-900 border border-slate-700 rounded-lg p-8">
-			<p class="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-6 text-center">
+			<p class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-6 text-center">
 				What this is NOT
 			</p>
 			<div class="grid md:grid-cols-3 gap-6">

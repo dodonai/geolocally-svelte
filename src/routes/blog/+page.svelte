@@ -55,7 +55,7 @@
 						class="aspect-[1200/630] w-full rounded-lg border border-slate-700 object-cover"
 						loading="lazy"
 					/>
-					<div class="mt-5 flex flex-wrap gap-3 text-sm text-gray-500">
+					<div class="mt-5 flex flex-wrap gap-3 text-sm text-gray-400">
 						<span class="font-bold uppercase tracking-[0.18em] text-indigo-400">
 							{post.category}
 						</span>

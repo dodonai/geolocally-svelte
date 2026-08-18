@@ -36,7 +36,7 @@
 		>
 			Request a pilot spot
 		</a>
-		<p class="mt-4 text-sm text-gray-500">3 spots. First come, first served.</p>
+		<p class="mt-4 text-sm text-gray-400">3 spots. First come, first served.</p>
 	</div>
 </section>
 
@@ -96,7 +96,7 @@
 				</p>
 			</div>
 		</div>
-		<p class="text-center text-gray-500 mt-8">Live in 5 business days. Total time from you: about 30 minutes on day 1 + 30 minutes on day 5.</p>
+		<p class="text-center text-gray-400 mt-8">Live in 5 business days. Total time from you: about 30 minutes on day 1 + 30 minutes on day 5.</p>
 	</div>
 </section>
 
@@ -157,6 +157,6 @@
 		>
 			Request a pilot spot
 		</a>
-		<p class="mt-4 text-sm text-gray-500">Or email <a href="mailto:hello@geolocally.com" class="underline">hello@geolocally.com</a> directly.</p>
+		<p class="mt-4 text-sm text-gray-400">Or email <a href="mailto:hello@geolocally.com" class="underline">hello@geolocally.com</a> directly.</p>
 	</div>
 </section>

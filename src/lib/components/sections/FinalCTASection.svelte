@@ -125,7 +125,7 @@
 					required
 					type="text"
 					placeholder="Your name (e.g. Mike Rodriguez)"
-					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-400 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
 				<label for="email" class="sr-only">Email address</label>
 				<input
@@ -134,7 +134,7 @@
 					required
 					type="email"
 					placeholder="Email address"
-					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-400 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
 				<label for="phone" class="sr-only">Phone number</label>
 				<input
@@ -142,7 +142,7 @@
 					name="phone"
 					type="tel"
 					placeholder="Phone number (optional)"
-					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-400 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
 				<label for="business" class="sr-only">Business name and city</label>
 				<input
@@ -151,7 +151,7 @@
 					required
 					type="text"
 					placeholder="Business name and city (e.g. Rodriguez Services, Austin TX or Bright Smiles Dental, Phoenix AZ)"
-					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-400 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
 				<label for="business-type" class="sr-only">What type of business?</label>
 				<select
@@ -171,7 +171,7 @@
 					name="website"
 					type="text"
 					placeholder="Website — optional (e.g. mysite.com or instagram.com/mybiz)"
-					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+					class="w-full bg-gray-800 border border-gray-700 text-white placeholder:text-gray-400 rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>
 				<label for="referral" class="sr-only">How did you hear about us?</label>
 				<select
